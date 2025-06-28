@@ -1,0 +1,45 @@
+.hover-dropdown {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.hover-label {
+  font-weight: 500;
+}
+
+.hover-label .arrow {
+  font-size: 15px;
+  margin-left: 4px;
+}
+
+.hover-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  min-width: 120px;
+  padding: 8px 0;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border-radius: 4px;
+  z-index: 1000;
+}
+
+.hover-dropdown:hover .hover-menu {
+  display: block;
+}
+
+.hover-item {
+  padding: 6px 12px;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  
+}
+
+.hover-item:hover {
+  background-color: #f5f5f5;
+  color: #000;
+}

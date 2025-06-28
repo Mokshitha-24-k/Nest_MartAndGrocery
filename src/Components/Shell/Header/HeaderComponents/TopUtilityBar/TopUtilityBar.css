@@ -1,0 +1,134 @@
+.top-utility-bar {
+  display: none;
+}
+
+
+@media (min-width: 1024px) {
+  .top-utility-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 8px 16px;
+    font-size: 11px;
+    flex-wrap: wrap;
+    gap: 10px;
+    border-radius: 16px;
+    border-bottom: 1px solid #eee;
+  }
+}
+
+.links{
+    display: flex;
+    align-items: center;
+    flex: 1;
+    flex-wrap: wrap;
+    
+}
+
+.links a {
+    text-decoration: none;
+    color: #6B6A69;
+    margin-right: 12px;
+    
+  }
+
+  .links a:not(:last-child)::after {
+    content: "|";
+    margin-left: 12px;
+    color: #6B6A69;
+  }
+
+  .links a:hover{
+    color: black;
+  }
+
+
+  .promo-text {
+    position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 20px;
+  overflow: hidden;
+  }
+
+  .scroll-content {
+    display: flex;
+  flex-direction: column;
+  animation: scrollUp 18s linear infinite;
+  }
+
+  .scroll-content div {
+    height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  color:#2e8b57;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  }
+
+  .scroll-content div:hover{
+    color: blue;
+  transform: scale(1.1);
+  z-index: 1;
+  }
+  
+  @keyframes scrollUp {
+    0%   { transform: translateY(0); }
+    100% { transform: translateY(-60px); }  
+  }
+
+  .right-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: nowrap;
+    font-size: 11px;
+  }
+  
+  .contact {
+    white-space: nowrap;
+    color: #6B6A69;
+  }
+
+  .number:hover {
+    cursor: pointer;
+  }
+  .number{
+    color:#2e8b57;
+  }
+  
+  
+  .dropdown-links {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .dropdown-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    color:#6B6A69;
+  }
+  .dropdown-item label{
+    color:#6B6A69;
+  }
+  
+  .dropdown-item:not(:first-child)::before {
+    content: "|";
+    color: #6B6A69;
+    margin-right: 12px;
+  }
+
+  .dropdown-item label {
+    color: #6B6A69;         
+    font-size: 11px;       
+    font-weight: 500;
+    transition: color 0.3s ease;
+    cursor: pointer;
+  }
+  
+  

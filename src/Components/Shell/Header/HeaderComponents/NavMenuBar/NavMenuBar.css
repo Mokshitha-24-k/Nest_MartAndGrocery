@@ -1,0 +1,20 @@
+.secondary-navbar {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 10px 20px;
+    background-color: #f8f8f8;
+    font-size: 13px;
+    flex-wrap: wrap;
+  }
+  
+  .plain-link {
+    color: #333;
+    cursor: pointer;
+    font-weight: 500;
+  }
+  
+  .plain-link:hover {
+    color: #32cd32;
+  }
+  
