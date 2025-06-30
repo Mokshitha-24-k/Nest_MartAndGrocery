@@ -1,0 +1,40 @@
+.adds-card {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    flex: 1;
+  }
+  
+  .adds-card-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+  }
+  
+  /* Overlay text aligned to left on the image */
+  .adds-card-content {
+    position: absolute;
+    top: 50%;
+    left: 20px; /* aligns left on the image */
+    transform: translateY(-50%);
+    color: black;
+    text-align: left;
+    max-width: 60%;
+  }
+  
+  .adds-card-content h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  
+  .adds-card-content button {
+    background-color: #3bb77e;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    cursor: pointer;
+  }
+  

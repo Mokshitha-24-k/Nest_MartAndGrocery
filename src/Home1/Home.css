@@ -1,0 +1,22 @@
+.promo-card-container {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    padding: 0 40px; 
+    margin: 40px 0;
+    flex-wrap: wrap;
+  }
+  
+  .promo-card-container > * {
+    flex: 1;
+    max-width: 32%;
+  }
+
+  .product-list-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    padding: 20px 40px;
+  }
+  
+  

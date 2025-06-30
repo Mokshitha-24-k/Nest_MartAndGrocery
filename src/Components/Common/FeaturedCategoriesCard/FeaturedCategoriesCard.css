@@ -1,0 +1,37 @@
+.simple-card {
+    width: 180px;
+    padding: 12px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    background-color: #fff;
+    transition: transform 0.2s ease;
+  }
+  
+  .simple-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .card-image {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+  
+  .card-title {
+    font-size: 1rem;
+    margin: 4px 0;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .card-description {
+    font-size: 0.85rem;
+    color: #777;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
