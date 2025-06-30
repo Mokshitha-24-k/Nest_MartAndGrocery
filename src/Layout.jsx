@@ -1,10 +1,10 @@
 import React from 'react'
-import Header from './Components/Shell/Header/Header'
+import Home1 from '../src/Home1/Home1'
 
 const Layout = () => {
   return (
     <div>
-      <Header />
+      <Home1 />
     </div>
   )
 }
