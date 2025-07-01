@@ -7,6 +7,7 @@ import AddsCard from '../Components/Common/AddsCard/AddsCard';
 import './Home.css';
 import PopularProductCard from '../Components/Common/PopularProductCard/PopularProductcard';
 import PopularProductData from "./PopularProductData";
+import Footer from '../Components/Shell/Footer/Footer';
 
 const slidesData = [
   {
@@ -52,7 +53,7 @@ const promoCards = [
     },
   ];
 
-const Home = () => {
+const Home2 = () => {
   return (
     <div>
         <div>
@@ -75,8 +76,22 @@ const Home = () => {
         />
       ))}
     </div>
-
-   
+ <div>
+   <div className='Pop'>
+   <div>
+        <span className="Heading"><h3>Popular Products</h3></span>
+      </div>
+      <div className='Pop-Links'>
+        <a href="">All</a>
+        <a href="">Milks & Dairies</a>
+        <a href="">Coffes & Teas</a>
+        <a href="">Pet Foods</a>
+        <a href="">Meats</a>
+        <a href="">Vegetables</a>
+        <a href="">Fruits</a>
+      </div>
+      </div>
+  
     <div className="product-list-container">
   {PopularProductData.map((product) => (
     <PopularProductCard
@@ -93,12 +108,16 @@ const Home = () => {
       onAddToCart={() => console.log(`Added ${product.title}`)}
     />
   ))}
-</div>
 
+</div>
+</div>
+<div>
+  <Footer />
+</div>
 
    
     </div>
   );
 };
 
-export default Home;
+export default Home2;

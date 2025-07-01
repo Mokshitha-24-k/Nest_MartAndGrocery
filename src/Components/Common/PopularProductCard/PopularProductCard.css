@@ -4,7 +4,8 @@
     overflow: hidden;
     background: white;
     position: relative;
-    width: 100%;
+    width: 90%;
+    margin: 30px auto 0; 
     transition: box-shadow 0.3s;
   }
   
@@ -14,23 +15,19 @@
   
   .discount-badge {
     position: absolute;
-    top: 10px;
-    left: 10px;
-    background-color: #3bb77e;
     color: black;
     font-size: 0.8rem;
     padding: 4px 8px;
-    border-radius: 0 6px 6px 0;
+    border-radius: 0 0 12px 0;
   }
   
   .product-image {
     position: relative;
-    padding: 20px;
     text-align: center;
   }
   
   .product-image img {
-    max-height: 100px;
+    max-height: 140px;
     object-fit: contain;
   }
   

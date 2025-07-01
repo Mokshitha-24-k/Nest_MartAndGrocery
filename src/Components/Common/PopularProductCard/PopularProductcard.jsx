@@ -17,12 +17,11 @@ const PopularProductCard = ({
   return (
     <div className="product-card">
       <div
-  className="discount-badge"
-  style={{ backgroundColor: discountBG || 'white' }}
->
-  {discount}
-</div>
-
+        className="discount-badge"
+        style={{ backgroundColor: discountBG || "white" }}
+      >
+        {discount}
+      </div>
 
       <div className="product-image">
         <img src={image} alt={title} />
@@ -40,7 +39,7 @@ const PopularProductCard = ({
         <div className="rating">
           {"★".repeat(rating)}
           {"☆".repeat(5 - rating)}
-          <span className="rating-count">{rating}</span>
+          <span className="rating-count">({rating})</span>
         </div>
 
         <p className="brand">

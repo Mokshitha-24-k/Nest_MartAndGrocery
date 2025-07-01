@@ -16,7 +16,62 @@
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 20px;
-    padding: 20px 40px;
+    padding: 0px 40px;
   }
+  @media (max-width: 1024px) {
+    .product-list-container {
+      grid-template-columns: repeat(3, 1fr);
+      padding: 20px;
+    }
+  }
+
+  .Pop {
+    display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  }
+
+ 
+  
+  .Heading h3 {
+    
+    margin: 0;
+    padding:0;
+    font-size: 20px;
+  }
+  
+  .Pop-Links {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  
+  .Pop-Links a {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+  }
+  .Pop-Links a:hover{
+    color:rgb(87, 232, 87);
+  }
+  
+  
+  @media (max-width: 768px) {
+    .Pop {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+  
+    .Pop-Links {
+      justify-content: flex-start;
+      flex-wrap: wrap;
+    }
+    
+  }
+  
   
   

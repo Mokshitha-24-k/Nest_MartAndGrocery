@@ -5,11 +5,12 @@ import { HiFire } from "react-icons/hi";
 import { FaBars } from "react-icons/fa";
 import { CiGrid41 } from "react-icons/ci";
 
+
 const NavMenuBar = () => {
   const [showMenu, setShowMenu] = useState(false);
 
   const BrowseOptions = ["Electronics", "Fashion", "Home", "Beauty"];
-  const HomeOptions = [];
+  const HomeOptions = ["Home1", "Home2","Home3"];
   const shopOptions = ["Our Story", "Careers", "Store Locator"];
   const vendorOptions = ["Top Vendors", "Vendor Login"];
   const MenuOptions = ["Option 1", "Option 2", "Option 3"];
