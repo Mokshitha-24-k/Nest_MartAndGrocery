@@ -26,7 +26,18 @@ const Images =  {
   Butter:require("./Butter.jpg"),
   Cream:require("./Cream.jpg"),
   OrganicCoffee:require("./OrganicCoffe.jpg"),
-  Latte:require("./Latte.jpg")
+  Latte:require("./Latte.jpg"),
+  FooterBG:require("./FooterBG.png"),
+  FooterOverlay:require("./FooterOverlay.png"),
+  FooterIcon1:require("./FooterIcon1.png"),
+  FooterIcon2:require("./FooterIcon2.png"),
+  FooterIcon3:require("./FooterIcon3.png"),
+  FooterIcon4:require("./FooterIcon4.png"),
+  FooterIcon5:require("./FooterIcon5.png"),
+  FooterIcon6:require("./FooterIcon6.png"),
+  FooterPayment:require("./FooterPayment.png"),
+  FooterAppStore:require("./FooterAppStore.jpg"),
+  FooterGooglePay:require("./FooterGooglePay.jpg")
 
 
 

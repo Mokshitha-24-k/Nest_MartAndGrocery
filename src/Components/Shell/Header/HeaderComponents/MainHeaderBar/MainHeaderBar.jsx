@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import Images from "../../../../../Assets/Images";
 import {
-  FaHeart,
-  FaShoppingCart,
-  FaUser,
   FaBars,
   FaSearch
 } from "react-icons/fa";
 import { CiLocationOn } from "react-icons/ci";
 import './MainHeaderBar.css';
 import Dropdown from '../../../../Common/Dropdown/Dropdown';
+import { IoMdHeartEmpty } from "react-icons/io";
+import { BsCart3 } from "react-icons/bs";
+import { FaRegUser } from "react-icons/fa";
 
 const MainHeaderBar = () => {
   const [showIcons, setShowIcons] = useState(false);
@@ -48,42 +48,42 @@ const MainHeaderBar = () => {
           </div>
 
           <div className="nav-icon">
-            <FaHeart />
+          <IoMdHeartEmpty />
             <span className="badge">0</span>
             <span className="nav-label">Wishlist</span>
           </div>
 
           <div className="nav-icon">
-            <FaShoppingCart />
+          <BsCart3 />
             <span className="badge">2</span>
             <span className="nav-label">Cart</span>
           </div>
 
           <div className="nav-icon">
-            <FaUser />
+          <FaRegUser />
             <span className="nav-label">Account</span>
           </div>
         </div>
       </div>
 
-      {/* Extra icons for small screens */}
+      
       <div className={`navbar-right-mobile ${showIcons ? "show" : ""}`}>
         <div className="nav-icon location-icon">
           <CiLocationOn />
           <Dropdown label="Location" options={LocationOptions} />
         </div>
         <div className="nav-icon">
-          <FaHeart />
+        <IoMdHeartEmpty />
           <span className="badge">0</span>
           <span className="nav-label">Wishlist</span>
         </div>
         <div className="nav-icon">
-          <FaShoppingCart />
+        <BsCart3 />
           <span className="badge">2</span>
           <span className="nav-label">Cart</span>
         </div>
         <div className="nav-icon">
-          <FaUser />
+        <FaRegUser />
           <span className="nav-label">Account</span>
         </div>
       </div>

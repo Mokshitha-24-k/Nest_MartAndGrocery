@@ -1,5 +1,7 @@
 .featured-section {
     margin: 30px 20px;
+    width: 90%;
+    margin: 30px auto 0; 
   }
   
   .section-header-inline {

@@ -1,10 +1,10 @@
 import React from 'react'
-import Home1 from '../src/Home1/Home1'
+import Home2 from '../src/Home1/Home2'
 
 const Layout = () => {
   return (
     <div>
-      <Home1 />
+      <Home2 />
     </div>
   )
 }
