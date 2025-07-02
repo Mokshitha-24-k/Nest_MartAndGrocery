@@ -37,7 +37,12 @@ const Images =  {
   FooterIcon6:require("./FooterIcon6.png"),
   FooterPayment:require("./FooterPayment.png"),
   FooterAppStore:require("./FooterAppStore.jpg"),
-  FooterGooglePay:require("./FooterGooglePay.jpg")
+  FooterGooglePay:require("./FooterGooglePay.jpg"),
+  LeafBG:require("./LeafBG.png"),
+  DealsOfDay1:require("./DealsOfDay1.png"),
+  DealsOfDay2:require("./DealsOfDay2.png"),
+  DealsOfDay3:require("./DealsOfDay3.png"),
+  DealsOfDay4:require("./DealsOfDay4.png")
 
 
 

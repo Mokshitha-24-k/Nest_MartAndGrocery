@@ -1,0 +1,145 @@
+
+.deals-of-day-card-container {
+    width: 90%;
+    position: relative;
+    margin: 130px auto;
+    margin-top: 20px;
+    border-radius: 16px;
+    overflow: visible;
+    transition: transform 0.3s ease;
+  }
+  
+  
+  .deals-of-day-image-section {
+    height: 220px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  }
+  
+  .deals-of-day-image-section img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  
+ 
+  .deals-of-day-info-card {
+    position: absolute;
+    top: 160px;
+    left: 15px;
+    right: 15px;
+    background-color: white;
+    padding: 16px;
+    border-radius: 16px;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
+    /* z-index: 2; */
+  }
+  
+ 
+  .deals-of-day-title {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: black;
+  }
+  
+  .deals-of-day-rating {
+    font-size: 0.95rem;
+    color: #f5a623;
+    margin-bottom: 6px;
+ display: flex;
+ justify-content: flex-start;
+  }
+  
+  .deals-of-day-rating-count {
+    color: #555;
+    margin-left: 4px;
+   
+  }
+  
+ 
+  .deals-of-day-brand {
+    font-size: 0.85rem;
+    color: #777;
+    margin-bottom: 10px;
+    display: flex;
+ justify-content: flex-start;
+  }
+  
+  .deals-of-day-brand span {
+    font-weight: 600;
+    color: #333;
+  }
+  
+ 
+  .deals-of-day-price-add-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+
+  .deals-of-day-price {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .deals-of-day-new-price {
+    font-weight: bold;
+    font-size: 1rem;
+    color: #2db94d;
+  }
+  
+  .deals-of-day-old-price {
+    font-size: 0.85rem;
+    text-decoration: line-through;
+    color: #aaa;
+  }
+  
+  /* Add button */
+  .deals-of-day-add-btn {
+    background-color: #2db94d;
+    color: white;
+    padding: 8px 14px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .deals-of-day-add-btn:hover {
+    background-color: #239f3e;
+  }
+  
+  .deals-of-day-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 15px;
+    
+    justify-items: center;
+  }
+
+  
+  
+.deals-of-day-section {
+    padding: 40px 20px;
+  }
+  
+ 
+  .deals-of-day-heading {
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: black;
+    text-align: left;
+    width:94%;
+    margin:0 auto;
+  }
+  
+ 
+  

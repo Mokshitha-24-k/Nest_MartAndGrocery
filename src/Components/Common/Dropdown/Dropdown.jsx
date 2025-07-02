@@ -1,4 +1,3 @@
-// src/components/common/HoverDropdown/HoverDropdown.jsx
 import React from "react";
 import "./Dropdown.css";
 import { RiArrowDropDownLine } from "react-icons/ri";
@@ -9,14 +8,16 @@ const Dropdown = ({ label, options }) => {
       <span className="hover-label">
         {label} <span className="arrow"><RiArrowDropDownLine /></span>
       </span>
-      <div className="hover-menu">
-        {options.map((opt, i) => (
-          <div className="hover-item" key={i}>
-           
-            <span>{opt}</span>
-          </div>
-        ))}
-      </div>
+
+      {options.length > 0 && (
+        <div className="hover-menu">
+          {options.map((opt, i) => (
+            <div className="hover-item" key={i}>
+              <a href={opt.path}>{opt.label}</a> {/* ✅ plain HTML link */}
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
