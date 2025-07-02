@@ -1,0 +1,183 @@
+/* .promo-card-container {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    padding: 0 40px; 
+    margin: 40px 0;
+    flex-wrap: wrap;
+  }
+  
+  .promo-card-container > * {
+    flex: 1;
+    max-width: 32%;
+  } */
+  .promo-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 0 25px;
+    margin: 40px 0 20px;
+    box-sizing: border-box;
+  }
+  
+  .promo-card-container > * {
+    flex: 0 0 calc(33.33% - 20px);
+    max-width: calc(33.33% - 20px);
+  }
+  
+  /* Medium and smaller: 2 per row */
+  @media (max-width: 992px) {
+    .promo-card-container > * {
+      flex: 0 0 calc(50% - 20px);
+      max-width: calc(50% - 20px);
+    }
+  }
+  
+  /* Very small screens: 100% (just in case) */
+  @media (max-width: 480px) {
+    .promo-card-container > * {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+  }
+  
+
+  /* .product-list-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    padding: 0px 40px;
+  }
+  @media (max-width: 1024px) {
+    .product-list-container {
+      grid-template-columns: repeat(3, 1fr);
+      padding: 20px;
+    }
+  } */
+
+  .product-list-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 0 25px;
+    box-sizing: border-box;
+  }
+  
+  /* Each child (PopularProductCard) wrapper */
+  .product-list-container > * {
+    flex: 0 0 calc(25% - 20px); /* Default: 4 cards per row */
+    max-width: calc(25% - 20px);
+    box-sizing: border-box;
+  }
+  
+  /* Medium screens (3 per row) */
+  @media (max-width: 992px) {
+    .product-list-container > * {
+      flex: 0 0 calc(33.33% - 20px);
+      max-width: calc(33.33% - 20px);
+    }
+  }
+  
+  /* Small screens (2 per row) */
+  @media (max-width: 768px) {
+    .product-list-container > * {
+      flex: 0 0 calc(50% - 20px);
+      max-width: calc(50% - 20px);
+    }
+  }
+  
+  /* Very small screens (1 per row) */
+  @media (max-width: 480px) {
+    .product-list-container > * {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+  }
+  
+
+  /* .Pop {
+    display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  } */
+  .Pop {
+    width: 100%;
+    padding: 0 40px; /* ⬅️ Same left/right as product cards */
+    margin-bottom: 10px; /* ⬇️ Small space below the heading */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+  }
+  
+
+ 
+  
+  .Heading h3 {
+    
+    margin: 0;
+    padding:0;
+    font-size: 20px;
+  }
+  
+  .Pop-Links {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  
+  .Pop-Links a {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+  }
+  .Pop-Links a:hover{
+    color:rgb(87, 232, 87);
+  }
+  
+  
+  @media (max-width: 768px) {
+    .Pop {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+  
+    .Pop-Links {
+      justify-content: flex-start;
+      flex-wrap: wrap;
+    }
+    
+  }
+  .LeafCardWrapper {
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    padding: 20px;
+    background-color: #f7f7f7; /* optional */
+  }
+  
+  .LeafCard {
+    max-width: 1000px;
+    width: 20%;
+  }
+
+  .LeafCard .adds-card-img {
+    height: 300px;
+    object-fit: cover;
+  }
+  
+  .LeafCard .adds-card-content {
+    top: 30%  ;
+  }
+  
+  
+  
+  
+  

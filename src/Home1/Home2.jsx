@@ -4,10 +4,13 @@ import ReusableCarousel from '../Components/Common/Carousel/Carousel';
 import Images from '../Assets/Images';
 import CardSlider from '../Components/Common/FeaturedCategoriesCard/CardSlider';
 import AddsCard from '../Components/Common/AddsCard/AddsCard';
-import './Home.css';
+import './Home2.css';
 import PopularProductCard from '../Components/Common/PopularProductCard/PopularProductcard';
 import PopularProductData from "./PopularProductData";
 import Footer from '../Components/Shell/Footer/Footer';
+import DailyBestSells from '../Components/Common/DailyBestSellsCard/DailyBestSells';
+import DealsOfDay from '../Components/Common/DealsOfDay/DealsOfDay';
+
 
 const slidesData = [
   {
@@ -57,7 +60,7 @@ const Home2 = () => {
   return (
     <div>
         <div>
-        <Header /> 
+        {/* <Header />  */}
         </div>
       <div>
       <ReusableCarousel slides={slidesData} />
@@ -111,8 +114,21 @@ const Home2 = () => {
 
 </div>
 </div>
+{/* <div className="LeafCardWrapper">
+  <div className="LeafCard">
+    <AddsCard
+      image={Images.LeafBG}
+      text="Bring nature into your home"
+      onClick={() => alert(`Clicked ${"ShopNow"}`)}
+    />
+  </div>
+</div> */}
 <div>
-  <Footer />
+<DailyBestSells />
+<DealsOfDay />
+    </div>
+<div>
+  
 </div>
 
    
