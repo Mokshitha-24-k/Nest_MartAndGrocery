@@ -7,8 +7,8 @@ import Footer4 from "./Footer4/Footer4";
 const Footer = () => {
   return (
     <div>
-      <Footer1 />
-      <Footer2 />
+      {/* <Footer1 /> */}
+      {/* <Footer2 /> */}
       <Footer3 />
       <hr
         style={{

@@ -42,7 +42,17 @@ const Images =  {
   DealsOfDay1:require("./DealsOfDay1.png"),
   DealsOfDay2:require("./DealsOfDay2.png"),
   DealsOfDay3:require("./DealsOfDay3.png"),
-  DealsOfDay4:require("./DealsOfDay4.png")
+  DealsOfDay4:require("./DealsOfDay4.png"),
+  AboutPic:require("./AboutPic.png"),
+  Slider1:require("./Slider1.png"),
+  Slider2:require("./Slider2.png"),
+  Slider3:require("./Slider3.png"),
+  Underline:require("./Underline.png"),
+  AboutComboPic:require("./AboutComboPic.png"),
+  AboutLongPic:require("./AboutLongPic.png"),
+  TeamPerson1:require("./TeamPerson1.png"),
+  TeamPerson2:require("./TeamPerson2.png"),
+
 
 
 

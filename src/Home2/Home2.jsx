@@ -10,6 +10,9 @@ import PopularProductData from "./PopularProductData";
 import Footer from '../Components/Shell/Footer/Footer';
 import DailyBestSells from '../Components/Common/DailyBestSellsCard/DailyBestSells';
 import DealsOfDay from '../Components/Common/DealsOfDay/DealsOfDay';
+import FourCardSection from "../Components/Common/TopSells/FourCardSection";
+import Footer1 from '../Components/Shell/Footer/Footer1/Footer1';
+import Footer2 from '../Components/Shell/Footer/Footer2/Footer2';
 
 
 const slidesData = [
@@ -126,6 +129,9 @@ const Home2 = () => {
 <div>
 <DailyBestSells />
 <DealsOfDay />
+<FourCardSection />
+<Footer1 />
+<Footer2 variant="home" />
     </div>
 <div>
   
