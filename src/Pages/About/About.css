@@ -1,0 +1,17 @@
+.wave-heading {
+    position: relative;
+    display: inline-block;
+    color: #222;
+    margin-bottom: 32px;
+  }
+  
+  .wave-underline-img {
+    position: absolute;
+    bottom: -12px; 
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px; 
+    height: auto;
+    pointer-events: none;
+  }
+  

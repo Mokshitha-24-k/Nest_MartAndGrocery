@@ -1,0 +1,61 @@
+.vcard {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .vcard:last-child {
+    border-bottom: none;
+  }
+  
+  .vcard-image {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .vcard-info {
+    flex: 1;
+   
+  }
+  
+  .vcard-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: #333;
+    line-height: 1.2;
+  }
+  
+  .vcard-rating {
+    font-size: 0.8rem;
+    color: #f5a623;
+    margin-bottom: 4px;
+  }
+  
+  .vcard-rating-count {
+    margin-left: 4px;
+    color: #777;
+  }
+  
+  .vcard-price {
+    font-size: 0.9rem;
+    display: flex;
+    gap: 6px;
+    align-items: center;
+  }
+  
+  .vcard-new {
+    font-weight: bold;
+    color: #2db94d;
+  }
+  
+  .vcard-old {
+    text-decoration: line-through;
+    color: #999;
+    font-size: 0.85rem;
+  }
+  
