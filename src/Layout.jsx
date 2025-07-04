@@ -6,7 +6,8 @@ import Footer from './Components/Shell/Footer/Footer'
 import { Outlet } from 'react-router-dom'
 import TopUtilityBar from './Components/Shell/Header/HeaderComponents/TopUtilityBar/TopUtilityBar'
 import About from "./Pages/About/About"
-
+import Contact from "./Pages/Contact/Contact"
+import Blog from "./Pages/Blog/Blog"
 const Layout = () => {
   return (
     <div>
@@ -15,7 +16,9 @@ const Layout = () => {
   <NavMenuBar />
       {/* <Home2 /> */}
       {/* <Outlet /> */}
-      <About />
+      {/* <About /> */}
+      {/* <Contact /> */}
+      <Blog />
       
       <Footer />
     </div>
