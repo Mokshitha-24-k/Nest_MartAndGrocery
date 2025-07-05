@@ -8,6 +8,7 @@ import TopUtilityBar from './Components/Shell/Header/HeaderComponents/TopUtility
 import About from "./Pages/About/About"
 import Contact from "./Pages/Contact/Contact"
 import Blog from "./Pages/Blog/Blog"
+import BlogDetails from "./Pages/BlogDetails/BlogDetails"
 const Layout = () => {
   return (
     <div>
@@ -18,7 +19,8 @@ const Layout = () => {
       {/* <Outlet /> */}
       {/* <About /> */}
       {/* <Contact /> */}
-      <Blog />
+      {/* <Blog /> */}
+      <BlogDetails />
       
       <Footer />
     </div>

@@ -70,6 +70,21 @@ const Images =  {
   Blog14:require("./Blog14.png"),
   Blog15:require("./Blog15.png"),
   BlogHead:require("./BlogHead.png"),
+  Blog_Baking:require("./Blog_Baking.png"),
+  Blog_Clothing:require("./Blog_Clothing.png"),
+  Blog_Fruit:require("./Blog_Fruit.png"),
+  Blog_Milk:require("./Blog_Milk.png"),
+  Blog_Pet:require("./Blog_Pet.png"),
+  Trending1:require("./Trending1.jpg"),
+  Trending2:require("./Trending2.jpg"),
+  Trending3:require("./Trending3.jpg"),
+  Trending4:require("./Trending4.jpg"),
+  Blog_Gallery1:require("./Blog_Galllery1.jpg"),
+  Blog_Gallery2:require("./Blog_Gallery2.jpg"),
+  HeadingPic:require("./HeadingPic.png"),
+  BlogDetailsPic:require("./BlogDetailsPic.png"),
+  BlogDetailsBody:require("./BlogDetailsBody.png")
+
 
 
 
