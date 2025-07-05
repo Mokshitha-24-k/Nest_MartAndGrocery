@@ -11,8 +11,8 @@ const RecipiesComponent = ({ image, type, title, date, views, readTime }) => {
         flexDirection: "column",
         borderRadius: 2,
         overflow: "hidden",
-        boxShadow: 2,
-        backgroundColor: "#fff",
+        // boxShadow: 2,
+        // backgroundColor: "#fff",
         transition: "transform 0.2s",
         "&:hover": {
           transform: "translateY(-4px)",

@@ -1,7 +1,8 @@
 import React from 'react';
 import BlogTop from "./BlogTop/BlogTop";
 import Footer1 from '../../Components/Shell/Footer/Footer1/Footer1';
-import Recipies from "./RecipsArticals/Recipies"
+import Recipies from "./RecipsArticals/Recipies";
+
 
 
 const Blog = () => {
