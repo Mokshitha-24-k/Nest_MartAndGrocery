@@ -15,7 +15,7 @@ import Footer1 from '../Components/Shell/Footer/Footer1/Footer1';
 import Footer2 from '../Components/Shell/Footer/Footer2/Footer2';
 
 
-const slidesData = [
+ export const slidesData = [
   {
     image: Images.CarouselBG1,
     heading: 'Fresh Vegetables Big discount',
@@ -44,7 +44,7 @@ const items = [
  
 ];
 
-const promoCards = [
+ export const promoCards = [
     {
       image: Images.Add1, 
       text: 'Everyday fresh & clean with our products',
@@ -65,7 +65,7 @@ const Home2 = () => {
         <div>
         {/* <Header />  */}
         </div>
-      <div>
+      <div style={{width:"90%", margin:' 0 auto'}}>
       <ReusableCarousel slides={slidesData} />
       </div>
       
