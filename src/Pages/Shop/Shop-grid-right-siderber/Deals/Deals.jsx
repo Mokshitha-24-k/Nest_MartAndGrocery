@@ -1,12 +1,14 @@
 import React from "react";
-import DealsOfDayCard from "./DealsOfDayCard";
-import "./DealsOfDayCard.css";
-import DealsData from "./DealsData"
+import DealsOfDayCard from "../../../../Components/Common/DealsOfDay/DealsOfDayCard";
+import "../../../../Components/Common/DealsOfDay/DealsOfDayCard.css";
+import DealsData from "../../../../Components/Common/DealsOfDay/DealsData";
+import {Box} from "@mui/material";
 
 
 
 const DealsOfDay = () => {
   return (
+    
     <div className="deals-of-day-section">
       <h2 className="deals-of-day-heading">Deals of the Day</h2>
 
@@ -21,6 +23,7 @@ const DealsOfDay = () => {
             price={item.price}
             oldPrice={item.oldPrice}
             onAddToCart={item.onAddToCart}
+            timer={item.timer}
           />
         ))}
       </div>

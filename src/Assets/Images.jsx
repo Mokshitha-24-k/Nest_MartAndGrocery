@@ -83,7 +83,11 @@ const Images =  {
   Blog_Gallery2:require("./Blog_Gallery2.jpg"),
   HeadingPic:require("./HeadingPic.png"),
   BlogDetailsPic:require("./BlogDetailsPic.png"),
-  BlogDetailsBody:require("./BlogDetailsBody.png")
+  BlogDetailsBody:require("./BlogDetailsBody.png"),
+  Comments1:require("./Comments1.png"),
+  Comments2:require("./Comments2.png"),
+  Comments3:require("./Comments3.png"),
+  FilterImg:require("./FilterImg.png")
 
 
 

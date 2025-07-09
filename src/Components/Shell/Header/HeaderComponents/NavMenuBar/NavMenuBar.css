@@ -3,6 +3,13 @@
   ;
   padding: 12px 24px;
   border-bottom: 1px solid #eee;
+  /* position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); */
 }
 
 
@@ -77,6 +84,14 @@
   cursor: pointer;
   color: #333;
   white-space: nowrap;
+  text-decoration: none;
+}
+.plain-link:hover {
+  color: #3bb77e;
+}
+.plain-link.active-link {
+  color: #3BB77E;
+  font-weight: 600;
 }
 
 

@@ -14,13 +14,15 @@ const Layout = () => {
     <div>
       <TopUtilityBar />
   <MainHeaderBar />
+  
   <NavMenuBar />
+ 
       {/* <Home2 /> */}
-      {/* <Outlet /> */}
+      <Outlet />
       {/* <About /> */}
       {/* <Contact /> */}
       {/* <Blog /> */}
-      <BlogDetails />
+      {/* <BlogDetails /> */}
       
       <Footer />
     </div>

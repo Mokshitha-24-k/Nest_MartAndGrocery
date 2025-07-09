@@ -6,7 +6,7 @@ import Images from "../../../../Assets/Images"
 
 const Footer1 = () => {
   return (
-    <div>
+    <div style={{marginTop:'20px'}}>
       <FooterCard
       image={Images.FooterBG}
       heading="Don’t Miss Amazing Grocery Deals"
