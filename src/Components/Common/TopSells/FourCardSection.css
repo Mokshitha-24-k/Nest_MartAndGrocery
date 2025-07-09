@@ -2,8 +2,10 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 20px;
-    padding: 20px;
-    width:90%;
+    padding: 15px;
+    width:95%;
     margin:0 auto;
+    /* margin-left: 20px; */
+    
   }
   

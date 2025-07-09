@@ -2,6 +2,7 @@
   position: relative;
   display: inline-block;
   cursor: pointer;
+  
 }
 
 .hover-label {
@@ -24,7 +25,9 @@
   border: 1px solid #e0e0e0;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   border-radius: 4px;
-  z-index: 1000;
+  z-index: 9999;
+  overflow: visible; 
+  max-height: none;
 }
 
 .hover-dropdown:hover .hover-menu {

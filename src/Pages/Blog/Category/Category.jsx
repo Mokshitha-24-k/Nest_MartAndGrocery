@@ -2,12 +2,17 @@ import React from 'react';
 import { Box, Stack, Typography } from '@mui/material';
 import Images from '../../../Assets/Images';
 
-const categories = [
+ export const categories = [
   { label: 'Milks & Dairies', img: Images.BlogHead, count: 2 },
   { label: 'Clothing', img: Images.Blog_Clothing, count: 2 },
   { label: 'Pet Foods', img: Images.Blog_Pet, count: 3 },
   { label: 'Baking material', img: Images.Blog_Baking, count: 5 },
   { label: 'Fresh Fruit', img: Images.Blog_Fruit, count: 6 },
+  { label: 'Milks & Dairies', img: Images.BlogHead, count: 2 },
+  { label: 'Clothing', img: Images.Blog_Clothing, count: 2 },
+  { label: 'Pet Foods', img: Images.Blog_Pet, count: 3 },
+  { label: 'Baking material', img: Images.Blog_Baking, count: 5 },
+  // { label: 'Fresh Fruit', img: Images.Blog_Fruit, count: 6 },
 ];
 
 const Catergory = () => {
@@ -58,7 +63,7 @@ const Catergory = () => {
 
      
       <Stack spacing={2}>
-        {categories.map((item, idx) => (
+      {categories.slice(0, 5).map((item, idx) => (
           <Box
           key={idx}
           sx={{
