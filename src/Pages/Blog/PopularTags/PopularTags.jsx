@@ -16,7 +16,8 @@ const PopularTags = () => {
         borderRadius: "16px",
         p: 3,
         mt: "30px",
-        bgcolor: "#fff"
+        bgcolor: "#fff",
+        mb:5
       }}
     >
      

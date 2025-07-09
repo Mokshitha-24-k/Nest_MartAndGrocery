@@ -1,6 +1,7 @@
 import React from "react";
 import "./Dropdown.css";
 import { RiArrowDropDownLine } from "react-icons/ri";
+import { NavLink } from "react-router-dom";
 
 const Dropdown = ({ label, options }) => {
   return (
@@ -13,7 +14,14 @@ const Dropdown = ({ label, options }) => {
         <div className="hover-menu">
           {options.map((opt, i) => (
             <div className="hover-item" key={i}>
-              <a href={opt.path}>{opt.label}</a> {/* ✅ plain HTML link */}
+              <NavLink
+                to={opt.path}
+                className={({ isActive }) =>
+                  isActive ? "dropdown-link active-link" : "dropdown-link"
+                }
+              >
+                {opt.label}
+              </NavLink>
             </div>
           ))}
         </div>

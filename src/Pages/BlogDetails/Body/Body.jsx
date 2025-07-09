@@ -6,6 +6,7 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import PinterestIcon from "@mui/icons-material/Pinterest";
 import StarIcon from '@mui/icons-material/Star';
+import CommentsSection from "../Comments/Comments"; 
 
 const Body = () => {
   return (
@@ -252,7 +253,7 @@ cras. Tempus lectus sed libero viverra ut. Facilisi rhoncus elit sit sit.
         </Box>
         </Box>
 </Box>
-
+<CommentsSection />
     </Box>
   );
 };

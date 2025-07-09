@@ -18,7 +18,8 @@ const Trending = () => {
         boxShadow: "0 0 10px rgba(0,0,0,0.1)",
         borderRadius: "16px",
         p: 3,
-        marginTop:"30px"
+        marginTop:"30px",
+        marginBottom:{xs:"80px" ,md:"5px"}
       }}
     >
      

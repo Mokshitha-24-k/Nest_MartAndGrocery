@@ -7,7 +7,19 @@
     border-radius: 16px;
     overflow: visible;
     transition: transform 0.3s ease;
+    /* flex: 1 1 calc(25% - 16px); */
+  max-width: 100%;
   }
+
+  
+ 
+  @media (min-width: 768px) {
+    .deals-of-day-card-container {
+      flex: 1 1 calc(25% - 16px); 
+      max-width: 260px;
+    }
+  }
+  
   
   
   .deals-of-day-image-section {
@@ -98,7 +110,7 @@
     color: #aaa;
   }
   
-  /* Add button */
+  
   .deals-of-day-add-btn {
     background-color: #2db94d;
     color: white;
@@ -117,16 +129,7 @@
     background-color: #239f3e;
   }
   
-  .deals-of-day-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 15px;
-    
-    justify-items: center;
-  }
 
-  
-  
 .deals-of-day-section {
     padding: 40px 20px;
   }
@@ -140,6 +143,74 @@
     width:94%;
     margin:0 auto;
   }
+
+  .timer-overlay {
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-wrap: nowrap;         
+    gap: 6px;
+    z-index: 2;
+    align-items: center;
+    max-width: calc(100% - 24px); 
+    overflow: hidden;
+  }
   
+  
+  
+  
+  .timer-box {
+    background-color: white;
+    padding: 10px 10px;
+    text-align: center;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #253D4E;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.05);
+    min-width: 44px;
+    line-height: 1.1;
+  }
+  
+  .timer-box span {
+    font-weight: normal;
+    font-size: 10px;
+    color: #888;
+    display: block;
+  }
+  
+  .deals-of-day-card-container.with-timer {
+    width: 100%;
+    max-width: 220px; 
+  }
+  
+  
+  .deals-of-day-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: flex-start;
+  } 
  
+  @media (max-width: 480px) {
+    .timer-overlay {
+      top: 80px;                 
+      left: 30px;
+      transform: none;
+      gap: 4px;
+    }
+  
+    .timer-box {
+      padding: 6px 6px;
+      font-size: 12px;
+      min-width: 36px;
+      line-height: 1;
+    }
+  
+    .timer-box span {
+      font-size: 8px;
+    }
+  }
   

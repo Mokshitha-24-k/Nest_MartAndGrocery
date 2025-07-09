@@ -7,6 +7,7 @@ import Gallery from "../Blog/Gallery/Gallery";
 import PopularTags from "../Blog/PopularTags/PopularTags";
 import Heading from "./Heading/Heading";
 import Body from "./Body/Body";
+import Footer1 from "../../Components/Shell/Footer/Footer1/Footer1"
 
 const BlogDetails = () => {
   return (
@@ -20,13 +21,13 @@ const BlogDetails = () => {
           gap: 4,
         }}
       >
-        {/* Left Main Content */}
+        
         <Box sx={{ flex: 3 }}>
           <Heading />
-          <Body /> {/* This can be paragraphs, images, etc. */}
+          <Body />
         </Box>
 
-        {/* Right Sidebar */}
+        
         <Box
           sx={{
             flex: 1,
@@ -43,8 +44,10 @@ const BlogDetails = () => {
           <Trending />
           <Gallery />
           <PopularTags />
+          
         </Box>
       </Box>
+      <Footer1 />
     </Box>
   );
 };

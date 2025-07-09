@@ -4,6 +4,8 @@ import Dropdown from "../../../../Common/Dropdown/Dropdown";
 import { HiFire } from "react-icons/hi";
 import { FaBars } from "react-icons/fa";
 import { CiGrid41 } from "react-icons/ci";
+import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const DropdownMenus = [
   {
@@ -25,14 +27,22 @@ const DropdownMenus = [
   },
   {
     label: "About",
-    options: [], 
+    options: [],
   },
   {
     label: "Shop",
     options: [
-      { label: "Our Story", path: "/shop/our-story" },
-      { label: "Careers", path: "/shop/careers" },
-      { label: "Store Locator", path: "/shop/locator" },
+      {
+        label: "Shop-grid-right-siderber",
+        path: "shop/ShopGridRightSidebar",
+      },
+      {
+        label: "Shop-grid-left-siderber",
+        path: "shop/ShhpGridLeftSidebar",
+      },
+      { label: "List-right-siderber", path: "/shop/ListRightSiderber" },
+      { label: "List-left-siderber", path: "/shop/ListLeftSiderber" },
+      { label: "Shop-fullwide", path: "/shop/ShopFullwide" },
     ],
   },
   {
@@ -52,7 +62,10 @@ const DropdownMenus = [
   },
   {
     label: "Blog",
-    options: [],
+    options: [
+      { label: "Blog", path: "/Blog/Blog" },
+      { label: "Blog Details", path: "/Blog/BlogDetails" },
+    ],
   },
   {
     label: "Pages",
@@ -64,58 +77,55 @@ const DropdownMenus = [
   },
   {
     label: "Contact",
-    options: [], // Plain link
+    options: [],
   },
 ];
 
 const NavMenuBar = () => {
   const [showMenu, setShowMenu] = useState(false);
 
+  const renderMenuItem = (menu) =>
+    menu.options.length > 0 ? (
+      <Dropdown key={menu.label} label={menu.label} options={menu.options} />
+    ) : (
+      <NavLink
+        to={`/${menu.label.toLowerCase().replace(/\s+/g, "-")}`}
+        className={({ isActive }) =>
+          isActive ? "plain-link active-link" : "plain-link"
+        }
+      >
+        {menu.label}
+      </NavLink>
+    );
+
   return (
     <div className="secondary-navbar">
       <div className="nav-row">
-        
         <div className="Left">
           <div className="Browse-Dropdown">
             <CiGrid41 style={{ color: "white" }} />
-            <Dropdown label="Browse All Categories" options={DropdownMenus[0].options} />
+            <Dropdown
+              label="Browse All Categories"
+              options={DropdownMenus[0].options}
+            />
           </div>
 
           <span className="plain-link">
             <HiFire style={{ color: "#3cb371" }} /> Hot Deals
           </span>
         </div>
-
-       
         <div className="Right large-screen-only">
-          {DropdownMenus.slice(1).map((menu) =>
-            menu.options.length > 0 ? (
-              <Dropdown key={menu.label} label={menu.label} options={menu.options} />
-            ) : (
-              <span key={menu.label} className="plain-link">
-                {menu.label}
-              </span>
-            )
-          )}
+          {DropdownMenus.slice(1).map((menu) => renderMenuItem(menu))}
         </div>
-
-        
-        <div className="hamburger-menu-icon" onClick={() => setShowMenu(!showMenu)}>
+        <div
+          className="hamburger-menu-icon"
+          onClick={() => setShowMenu(!showMenu)}
+        >
           <FaBars />
         </div>
       </div>
-
-     
       <div className={`Right mobile-dropdown ${showMenu ? "show" : ""}`}>
-        {DropdownMenus.slice(1).map((menu) =>
-          menu.options.length > 0 ? (
-            <Dropdown key={menu.label} label={menu.label} options={menu.options} />
-          ) : (
-            <span key={menu.label} className="plain-link">
-              {menu.label}
-            </span>
-          )
-        )}
+        {DropdownMenus.slice(1).map((menu) => renderMenuItem(menu))}
       </div>
     </div>
   );
