@@ -25,7 +25,7 @@ const Footer3 = () => {
             />
             <Typography
               variant="body2"
-              sx={{ mt: 1, fontSize: "15px", fontFamily: "Lato" }}
+              sx={{ mt: 1, fontSize: "15px" }}
             >
               Awesome grocery store website template
             </Typography>
@@ -34,7 +34,7 @@ const Footer3 = () => {
               <CiLocationOn color="#3bb77e" />
               <Typography
                 variant="body2"
-                sx={{ fontSize: "15px", fontFamily: "Lato" }}
+                sx={{ fontSize: "15px" }}
               >
                 5171 W Campbell Ave, UT 53127
               </Typography>
@@ -44,7 +44,7 @@ const Footer3 = () => {
               <LuHeadphones color="#3bb77e" />
               <Typography
                 variant="body2"
-                sx={{ fontSize: "15px", fontFamily: "Lato" }}
+                sx={{ fontSize: "15px" }}
               >
                 (+91) 540-025-124553
               </Typography>
@@ -54,7 +54,7 @@ const Footer3 = () => {
               <RiTelegram2Line color="#3bb77e" />
               <Typography
                 variant="body2"
-                sx={{ fontSize: "15px", fontFamily: "Lato" }}
+                sx={{ fontSize: "15px" }}
               >
                 sale@Nest.com
               </Typography>
@@ -64,7 +64,7 @@ const Footer3 = () => {
               <LuClock color="#3bb77e" />
               <Typography
                 variant="body2"
-                sx={{ fontSize: "15px", fontFamily: "Lato" }}
+                sx={{ fontSize: "15px" }}
               >
                 10:00 - 18:00, Mon - Sat
               </Typography>
@@ -76,7 +76,7 @@ const Footer3 = () => {
           <Typography
             variant="h6"
             gutterBottom
-            sx={{ fontSize: "20px", fontFamily: "Quicksand" }}
+            sx={{ fontSize: "20px" }}
           >
             Company
           </Typography>
@@ -92,7 +92,7 @@ const Footer3 = () => {
             <Typography
               variant="body2"
               key={i}
-              sx={{ color: "#666", fontSize: "15px", fontFamily: "Lato" }}
+              sx={{ color: "#666", fontSize: "15px" }}
             >
               {text}
             </Typography>
@@ -103,7 +103,7 @@ const Footer3 = () => {
           <Typography
             variant="h6"
             gutterBottom
-            sx={{ fontSize: "20px", fontFamily: "Quicksand" }}
+            sx={{ fontSize: "20px" }}
           >
             Account
           </Typography>
@@ -119,7 +119,7 @@ const Footer3 = () => {
             <Typography
               variant="body2"
               key={i}
-              sx={{ color: "#666", fontSize: "15px", fontFamily: "Lato" }}
+              sx={{ color: "#666", fontSize: "15px" }}
             >
               {text}
             </Typography>
@@ -130,7 +130,7 @@ const Footer3 = () => {
           <Typography
             variant="h6"
             gutterBottom
-            sx={{ fontSize: "20px", fontFamily: "Quicksand" }}
+            sx={{ fontSize: "20px" }}
           >
             Corporate
           </Typography>
@@ -146,7 +146,7 @@ const Footer3 = () => {
             <Typography
               variant="body2"
               key={i}
-              sx={{ color: "#666", fontSize: "15px", fontFamily: "Lato" }}
+              sx={{ color: "#666", fontSize: "15px" }}
             >
               {text}
             </Typography>
@@ -158,7 +158,7 @@ const Footer3 = () => {
             <Typography
               variant="h6"
               gutterBottom
-              sx={{ fontSize: "20px", fontFamily: "Quicksand" }}
+              sx={{ fontSize: "20px" }}
             >
               Popular
             </Typography>
@@ -174,7 +174,7 @@ const Footer3 = () => {
               <Typography
                 variant="body2"
                 key={i}
-                sx={{ color: "#666", fontSize: "15px", fontFamily: "Lato" }}
+                sx={{ color: "#666", fontSize: "15px" }}
               >
                 {text}
               </Typography>
@@ -187,7 +187,7 @@ const Footer3 = () => {
             <Typography
               variant="h6"
               gutterBottom
-              sx={{ fontSize: "20px", fontFamily: "Quicksand" }}
+              sx={{ fontSize: "20px" }}
             >
               Install App
             </Typography>
