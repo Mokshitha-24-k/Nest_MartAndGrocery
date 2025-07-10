@@ -13,6 +13,9 @@ import DealsOfDay from '../Components/Common/DealsOfDay/DealsOfDay';
 import FourCardSection from "../Components/Common/TopSells/FourCardSection";
 import Footer1 from '../Components/Shell/Footer/Footer1/Footer1';
 import Footer2 from '../Components/Shell/Footer/Footer2/Footer2';
+import { useDispatch } from "react-redux";
+import { addToCart } from "../Redux/cartActions";
+
 
 
  export const slidesData = [
@@ -59,7 +62,10 @@ const items = [
     },
   ];
 
+
+  
 const Home2 = () => {
+  const dispatch = useDispatch();
   return (
     <div>
         <div>
@@ -111,7 +117,17 @@ const Home2 = () => {
       brand={product.brand}
       price={product.price}
       oldPrice={product.oldPrice}
-      onAddToCart={() => console.log(`Added ${product.title}`)}
+      onAddToCart={() =>
+        dispatch(
+          addToCart({
+            id: product.id,
+            name: product.title,
+            price: product.price,
+            image: product.image,
+          })
+        )
+      }
+      
     />
   ))}
 

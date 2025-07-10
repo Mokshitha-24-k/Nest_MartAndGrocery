@@ -1,6 +1,6 @@
 import React from "react";
 import "./PopularProductCard.css";
-import { FaEye, FaRandom, FaHeart, FaShoppingCart } from "react-icons/fa";
+import {  FaShoppingCart } from "react-icons/fa";
 
 const PopularProductCard = ({
   discount,
@@ -25,11 +25,7 @@ const PopularProductCard = ({
 
       <div className="product-image">
         <img src={image} alt={title} />
-        {/* <div className="action-icons">
-          <FaEye />
-          <FaRandom />
-          <FaHeart />
-        </div> */}
+        
       </div>
 
       <div className="product-info">
