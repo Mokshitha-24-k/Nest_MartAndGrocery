@@ -108,6 +108,7 @@ const Home2 = () => {
   {PopularProductData.map((product) => (
     <PopularProductCard
       key={product.id}
+      id={product.id}
       discount={product.discount}
       discountBG={product.discountBG}
       image={product.image}
@@ -117,16 +118,6 @@ const Home2 = () => {
       brand={product.brand}
       price={product.price}
       oldPrice={product.oldPrice}
-      onAddToCart={() =>
-        dispatch(
-          addToCart({
-            id: product.id,
-            name: product.title,
-            price: product.price,
-            image: product.image,
-          })
-        )
-      }
       
     />
   ))}

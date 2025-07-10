@@ -1,15 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import Images from "../../../../../Assets/Images";
-import {
-  FaBars,
-  FaSearch
-} from "react-icons/fa";
+import { useSelector } from "react-redux";
+import { FaBars, FaSearch } from "react-icons/fa";
 import { CiLocationOn } from "react-icons/ci";
-import './MainHeaderBar.css';
-import Dropdown from '../../../../Common/Dropdown/Dropdown';
+import "./MainHeaderBar.css";
+import Dropdown from "../../../../Common/Dropdown/Dropdown";
 import { IoMdHeartEmpty } from "react-icons/io";
 import { BsCart3 } from "react-icons/bs";
 import { FaRegUser } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const MainHeaderBar = () => {
   const [showIcons, setShowIcons] = useState(false);
@@ -18,6 +17,9 @@ const MainHeaderBar = () => {
   const toggleMenu = () => {
     setShowIcons(!showIcons);
   };
+
+  const cartItems = useSelector((state) => state.cartItems); // Adjust based on your store structure
+  const totalItems = cartItems.reduce((acc, item) => acc + item.quantity, 0);
 
   return (
     <nav className="navbar">
@@ -48,42 +50,47 @@ const MainHeaderBar = () => {
           </div>
 
           <div className="nav-icon">
-          <IoMdHeartEmpty />
+            <IoMdHeartEmpty />
             <span className="badge">0</span>
             <span className="nav-label">Wishlist</span>
           </div>
 
           <div className="nav-icon">
-          <BsCart3 />
-            <span className="badge">2</span>
-            <span className="nav-label">Cart</span>
+            <div>
+            <Link to="/cart" style={{ textDecoration: "none" }}>
+              <BsCart3 size={16} style={{ color: "#253D4E" }} />
+              {totalItems > 0 && <span className="badge">{totalItems}</span>} </Link></div>
+              <span className="nav-label">Cart</span>
+           
+            
           </div>
 
           <div className="nav-icon">
-          <FaRegUser />
+            <FaRegUser />
             <span className="nav-label">Account</span>
           </div>
         </div>
       </div>
 
-      
       <div className={`navbar-right-mobile ${showIcons ? "show" : ""}`}>
         <div className="nav-icon location-icon">
           <CiLocationOn />
           <Dropdown label="Location" options={LocationOptions} />
         </div>
         <div className="nav-icon">
-        <IoMdHeartEmpty />
+          <IoMdHeartEmpty />
           <span className="badge">0</span>
           <span className="nav-label">Wishlist</span>
         </div>
         <div className="nav-icon">
-        <BsCart3 />
-          <span className="badge">2</span>
-          <span className="nav-label">Cart</span>
+          <BsCart3 />
+          <Link to="/cart">
+            <span className="badge">2</span>
+            <span className="nav-label">Cart</span>
+          </Link>
         </div>
         <div className="nav-icon">
-        <FaRegUser />
+          <FaRegUser />
           <span className="nav-label">Account</span>
         </div>
       </div>

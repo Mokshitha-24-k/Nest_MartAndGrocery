@@ -61,7 +61,7 @@ const PopularProductData = [
     stockStatus: "In Stock",
     tags: ["popcorn", "sweet", "salty"],
     text: "A delicious blend of sweet and salty popcorn.",
-    longDescription: "Made with whole grains, Boomchickapop offers the perfect combination of sweet and salty flavors in each kernel.",
+    longDescription: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti obcaecati quam at ratione itaque inventore harum animi architecto, corporis, veniam ut, cumque suscipit? Modi magni amet praesentium reiciendis? Distinctio, nostrum? Voluptas est aspernatur architecto omnis enim. Aspernatur saepe, veniam laborum veritatis neque rerum accusantium doloremque reiciendis. Nulla autem minima, odit porro modi quis a aut, laudantium cum soluta placeat molestias. Voluptatibus consequuntur similique nisi aspernatur, facere necessitatibus ratione quisquam voluptas veniam aliquid repudiandae atque sint molestiae tenetur commodi soluta neque corporis modi accusamus quam ea? Eligendi ducimus omnis quae ex. Quisquam eligendi, aperiam amet minus, dolores, veniam quasi molestias laborum dicta adipisci dolorum sed neque! Ad assumenda vitae, perspiciatis tenetur ut cum soluta veniam minus magnam maxime dolore impedit culpa. Qui, rerum tempore ratione pariatur cupiditate cumque voluptatibus soluta quam? Quia nam culpa aliquid fuga aut ut ullam laudantium perferendis tempore. Eos deleniti praesentium tempora veniam repudiandae aut quaerat recusandae!",
     shippingInfo: "Free delivery on first order"
   },
   {

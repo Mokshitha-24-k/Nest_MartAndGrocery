@@ -11,6 +11,8 @@ import ShopGridLeftBar from "./Pages/Shop/Shop-grid-left-siderber/ShopGridLefBar
 import ListRightSideBar from "./Pages/Shop/ListRightSiderBar/ListRightSideBar";
 import ListLeftSideBar from "./Pages/Shop/ListLeftSiderBar/ListLeftSiderBar";
 import ShopfullWide from './Pages/Shop/ShopFullWide/ShopfullWide';
+import CartPage from './Pages/AddToCart/CartPage';
+// import SingleProduct from "./Pages/SingleProduct/SingleProduct"
 const router = createBrowserRouter([
   {
 
@@ -30,6 +32,9 @@ const router = createBrowserRouter([
       { path: '/shop/ListRightSiderber', element: <ListRightSideBar /> },
       { path: '/shop/ListLeftSiderber', element: <ListLeftSideBar /> },
       { path: '/shop/ShopFullwide', element: <ShopfullWide /> },
+      { path: 'cart', element: <CartPage /> },
+      
+      // { path: 'product/:id', element: <SingleProduct /> },
 
 
    
