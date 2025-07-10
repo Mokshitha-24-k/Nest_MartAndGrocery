@@ -33,33 +33,33 @@ const DropdownMenus = [
     label: "Shop",
     options: [
       {
-        label: "Shop-grid-right-siderber",
+        label: "Shop-grid-right-siderbar",
         path: "shop/ShopGridRightSidebar",
       },
       {
-        label: "Shop-grid-left-siderber",
+        label: "Shop-grid-left-siderbar",
         path: "shop/ShhpGridLeftSidebar",
       },
-      { label: "List-right-siderber", path: "/shop/ListRightSiderber" },
-      { label: "List-left-siderber", path: "/shop/ListLeftSiderber" },
+      { label: "List-right-siderbar", path: "/shop/ListRightSiderber" },
+      { label: "List-left-siderbar", path: "/shop/ListLeftSiderber" },
       { label: "Shop-fullwide", path: "/shop/ShopFullwide" },
     ],
   },
-  {
-    label: "Vendors",
-    options: [
-      { label: "Top Vendors", path: "/vendors/top" },
-      { label: "Vendor Login", path: "/vendors/login" },
-    ],
-  },
-  {
-    label: "Mega Menu",
-    options: [
-      { label: "Option 1", path: "/menu/option1" },
-      { label: "Option 2", path: "/menu/option2" },
-      { label: "Option 3", path: "/menu/option3" },
-    ],
-  },
+  // {
+  //   label: "Vendors",
+  //   options: [
+  //     { label: "Top Vendors", path: "/vendors/top" },
+  //     { label: "Vendor Login", path: "/vendors/login" },
+  //   ],
+  // },
+  // {
+  //   label: "Mega Menu",
+  //   options: [
+  //     { label: "Option 1", path: "/menu/option1" },
+  //     { label: "Option 2", path: "/menu/option2" },
+  //     { label: "Option 3", path: "/menu/option3" },
+  //   ],
+  // },
   {
     label: "Blog",
     options: [
