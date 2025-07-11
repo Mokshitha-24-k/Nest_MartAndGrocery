@@ -13,21 +13,28 @@ import {
   CardMedia,
   IconButton,
   Button,
+  Rating,
+  TextField,
 } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 
 const CartPage = () => {
   const cartItems = useSelector((state) => state.cartItems);
   const dispatch = useDispatch();
-  console.log(cartItems);
+
+  const handleQuantityChange = (id, quantity) => {
+    if (quantity >= 1) {
+      dispatch(updateQuantity(id, quantity));
+    }
+  };
 
   const total = cartItems.reduce(
-    (acc, item) => acc + item.price * item.quantity,
+    (acc, item) => acc + parseFloat(item.price) * item.quantity,
     0
   );
 
   return (
-    <Box sx={{ p: 4 }}>
+    <Box sx={{ p: { xs: 2, md: 4 } }}>
       <Typography variant="h4" sx={{ mb: 3 }}>
         Your Cart
       </Typography>
@@ -40,34 +47,135 @@ const CartPage = () => {
             <Card
               key={item.id}
               sx={{
-                mb: 2,
+                mb: 3,
                 display: "flex",
-                alignItems: "center",
-                justifyContent: "space-between",
+                flexDirection: { xs: "column", sm: "row" },
+                alignItems: "flex-start",
+                gap: 2,
+                p: 2,
+                position: "relative",
               }}
             >
+              {/* Notify Me Button - positioned properly */}
+              {(item.stockStatus?.toLowerCase().includes("out") ||
+                item.stockStatus?.toLowerCase().includes("limited")) && (
+                <Button
+                  variant="outlined"
+                  color="primary"
+                  size="small"
+                  sx={{
+                    position: {
+                      xs: "relative",
+                      sm: "absolute",
+                    },
+                    top: { sm: 8 },
+                    right: { sm: 8 },
+                    alignSelf: { xs: "flex-end", sm: "auto" },
+                    mb: { xs: 1, sm: 0 },
+                    zIndex: 1,
+                  }}
+                  onClick={() =>
+                    alert(`You'll be notified when "${item.title}" is restocked.`)
+                  }
+                >
+                  Notify Me
+                </Button>
+              )}
+
               <CardMedia
                 component="img"
                 image={item.image}
-                sx={{ width: 120, height: 120, objectFit: "contain", p: 2 }}
+                sx={{
+                  width: { xs: "100%", sm: 150 },
+                  height: { xs: 200, sm: 150 },
+                  objectFit: "cover",
+                  borderRadius: 1,
+                }}
               />
-              <CardContent sx={{ flex: 1 }}>
+
+              <CardContent sx={{ flex: 1, width: "100%" }}>
                 <Typography variant="h6">{item.title}</Typography>
-                <Typography variant="body2" color="text.secondary">
+                <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
                   {item.category}
                 </Typography>
-                <Typography>
-                  ${item.price} × {item.quantity}
-                </Typography>
+
+                {item.brand && (
+                  <Typography variant="body2">Brand: {item.brand}</Typography>
+                )}
+
+                {item.stockStatus && (
+                  <Typography
+                    variant="body2"
+                    color={
+                      item.stockStatus.toLowerCase().includes("out")
+                        ? "red"
+                        : "green"
+                    }
+                    sx={{ mt: 1 }}
+                  >
+                    {item.stockStatus}
+                  </Typography>
+                )}
+
+                {item.text && (
+                  <Typography variant="body2" sx={{ mt: 1 }}>
+                    {item.text.slice(0, 100)}...
+                  </Typography>
+                )}
+
+                {item.rating && (
+                  <Rating
+                    value={item.rating}
+                    precision={0.5}
+                    readOnly
+                    size="small"
+                    sx={{ mt: 1 }}
+                  />
+                )}
+
+                <Box sx={{ mt: 2 }}>
+                  <Typography variant="body1" sx={{ fontWeight: 500 }}>
+                    Price: ${item.price}
+                  </Typography>
+
+                  <TextField
+                    type="number"
+                    label="Quantity"
+                    size="small"
+                    value={item.quantity}
+                    onChange={(e) =>
+                      handleQuantityChange(item.id, parseInt(e.target.value))
+                    }
+                    inputProps={{ min: 1 }}
+                    sx={{ width: 100, mt: 1 }}
+                  />
+
+                  <Typography
+                    variant="body1"
+                    sx={{ mt: 1, fontWeight: "bold", color: "primary.main" }}
+                  >
+                    Total: ${(parseFloat(item.price) * item.quantity).toFixed(2)}
+                  </Typography>
+                </Box>
               </CardContent>
-              <IconButton onClick={() => dispatch(removeFromCart(item.id))}>
+
+              <IconButton
+                onClick={() => dispatch(removeFromCart(item.id))}
+                sx={{ alignSelf: { xs: "flex-end", sm: "center" } }}
+              >
                 <DeleteIcon />
               </IconButton>
             </Card>
           ))}
 
           <Box sx={{ mt: 4 }}>
-            <Typography variant="h6">Total: ${total.toFixed(2)}</Typography>
+            <Typography
+              variant="h6"
+              sx={{ fontWeight: "bold", fontSize: { xs: "1.2rem", md: "1.5rem" } }}
+            >
+              Total Price: ${total.toFixed(2)}
+            </Typography>
+
             <Button
               variant="contained"
               color="error"

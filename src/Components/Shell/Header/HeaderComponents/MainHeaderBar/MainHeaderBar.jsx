@@ -18,7 +18,7 @@ const MainHeaderBar = () => {
     setShowIcons(!showIcons);
   };
 
-  const cartItems = useSelector((state) => state.cartItems); // Adjust based on your store structure
+  const cartItems = useSelector((state) => state.cartItems); 
   const totalItems = cartItems.reduce((acc, item) => acc + item.quantity, 0);
 
   return (

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Box, Stack, Pagination } from '@mui/material';
+import { useSelector } from 'react-redux';
 import ListComponent from './ListComponent';
 import PopularProductData from '../../../Home2/PopularProductData';
 import DealsOfDay from '../Shop-grid-right-siderber/Deals/Deals';
@@ -8,18 +9,27 @@ const ITEMS_PER_PAGE = 4;
 
 const LeftComponent = () => {
   const [page, setPage] = useState(1);
+  const selectedCategory = useSelector(state => state.selectedCategory); 
+
+  
+  const filteredProducts =
+    selectedCategory === 'All'
+      ? PopularProductData
+      : PopularProductData.filter(
+          product =>
+            product.category.toLowerCase().trim() ===
+            selectedCategory.toLowerCase().trim()
+        );
+
+  const startIndex = (page - 1) * ITEMS_PER_PAGE;
+  const currentItems = filteredProducts.slice(startIndex, startIndex + ITEMS_PER_PAGE);
 
   const handlePageChange = (event, value) => {
     setPage(value);
   };
 
-  
-  const startIndex = (page - 1) * ITEMS_PER_PAGE;
-  const currentItems = PopularProductData.slice(startIndex, startIndex + ITEMS_PER_PAGE);
-
   return (
     <Box>
-    
       <Box sx={{ px: { xs: 2, sm: 4 }, py: 4 }}>
         <Stack spacing={4}>
           {currentItems.map((product) => (
@@ -39,10 +49,9 @@ const LeftComponent = () => {
           ))}
         </Stack>
 
-      
         <Box sx={{ display: 'flex', justifyContent: 'center', mt: 4 }}>
           <Pagination
-            count={Math.ceil(PopularProductData.length / ITEMS_PER_PAGE)}
+            count={Math.ceil(filteredProducts.length / ITEMS_PER_PAGE)}
             page={page}
             onChange={handlePageChange}
             shape="rounded"
@@ -53,7 +62,6 @@ const LeftComponent = () => {
         </Box>
       </Box>
 
-    
       <Box>
         <DealsOfDay />
       </Box>

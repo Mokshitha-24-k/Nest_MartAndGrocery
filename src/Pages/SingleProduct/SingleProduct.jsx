@@ -12,13 +12,14 @@ const SingleProduct = () => {
 
   return (
     <Box sx={{ padding: '40px 5%', display: 'flex', flexDirection: 'column', gap: 4 }}>
-      {/* Main Section */}
+     
       <Stack direction={{ xs: 'column', md: 'row' }} spacing={4}>
-        {/* Images */}
+        
         <Box sx={{ flex: 1 }}>
           <img
             src={product.image}
             alt={product.title}
+            
             style={{ width: '100%', borderRadius: 10 }}
           />
           <Stack direction="row" spacing={2} mt={2}>
@@ -27,7 +28,7 @@ const SingleProduct = () => {
           </Stack>
         </Box>
 
-        {/* Product Info */}
+        
         <Box sx={{ flex: 2 }}>
           <Chip label={product.discount} sx={{ backgroundColor: product.discountBG, color: '#fff' }} />
           <Typography variant="h5" mt={1}>{product.title}</Typography>
