@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Box } from "@mui/material";
 import Category from "../Blog/Category/Category";
 import Trending from "../Blog/Trending/Trending";
@@ -17,6 +17,19 @@ import { categories } from "../Blog/Category/Category";
 import CategoryGrid from "./CategoryGrid/CategoryGrid";
 
 const Home1 = () => {
+  const [selectedCategory, setSelectedCategory] = useState("All");
+
+  const handleCategoryClick = (category) => {
+    setSelectedCategory(category);
+  };
+
+  const filteredProducts =
+    selectedCategory === "All"
+      ? PopularProductData
+      : PopularProductData.filter(
+          (product) => product.category === selectedCategory
+        );
+
   return (
     <Box sx={{ px: 3, py: 6, width: "100%", mx: "auto" }}>
       <Box
@@ -52,15 +65,34 @@ const Home1 = () => {
               </span>
             </div>
             <div className="Pop-Links">
-              <a href="">All</a>
-              <a href="">Milks & Dairies</a>
-              <a href="">Coffees & Teas</a>
-              <a href="">Pet Foods</a>
-              <a href="">Meats</a>
-              <a href="">Vegetables</a>
-              <a href="">Fruits</a>
+              {[
+                "All",
+                "Milks & Dairies",
+                "Coffees & Teas",
+                "Pet Foods",
+                "Meats",
+                "Vegetables",
+                "Fruits",
+              ].map((cat) => (
+                <a
+                  key={cat}
+                  onClick={() => handleCategoryClick(cat)}
+                  style={{
+                    cursor: "pointer",
+                    color: selectedCategory === cat ? "#fff" : "#000",
+                    backgroundColor: selectedCategory === cat ? "#3BB77E" : "transparent",
+                    padding: "6px 12px",
+                    borderRadius: "20px",
+                    transition: "all 0.3s",
+                    fontWeight: 500,
+                  }}
+                >
+                  {cat}
+                </a>
+              ))}
             </div>
           </div>
+
           <div
             className="product-list-container"
             style={{
@@ -70,7 +102,7 @@ const Home1 = () => {
               gap: "20px",
             }}
           >
-            {PopularProductData.slice(0, 8).map((product) => (
+            {filteredProducts.slice(0, 8).map((product) => (
               <PopularProductCard
                 key={product.id}
                 discount={product.discount}
@@ -100,7 +132,7 @@ const Home1 = () => {
           </div>
         </Box>
       </Box>
-     
+
       <CategoryGrid categories={categories} />
       <div style={{ width: "100%", margin: "50px auto 0" }}>
         <FourCardSection />

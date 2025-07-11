@@ -4,9 +4,12 @@ import {
     UPDATE_QUANTITY,
     CLEAR_CART,
   } from './cartActions';
+
+  import { SET_CATEGORY_FILTER } from './cartActions';
   
   const initialState = {
     cartItems: [],
+    selectedCategory:"All"
   };
   
   const cartReducer = (state = initialState, action) => {
@@ -49,6 +52,12 @@ import {
           ...state,
           cartItems: [],
         };
+        
+      case SET_CATEGORY_FILTER:
+      return {
+        ...state,
+        selectedCategory: action.payload,
+      };
   
       default:
         return state;

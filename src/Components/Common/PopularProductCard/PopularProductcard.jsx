@@ -15,7 +15,7 @@ const PopularProductCard = ({
   brand,
   price,
   oldPrice,
-  stockStatus = "In Stock", // Add default if missing
+  stockStatus  
 }) => {
   const dispatch = useDispatch();
 
@@ -78,9 +78,9 @@ const PopularProductCard = ({
               alert("Item added to cart!");
             }}
             
-            disabled={stockStatus === "Out of Stock"}
+           
           >
-            <FaShoppingCart /> {stockStatus === "Out of Stock" ? "Out of Stock" : "Add"}
+            <FaShoppingCart />  "Add"
           </button>
         </div>
       </div>

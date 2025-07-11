@@ -1,21 +1,26 @@
 import React from 'react';
 import { Box, Stack, Typography } from '@mui/material';
+import { useDispatch, useSelector } from 'react-redux';
+import { setCategoryFilter } from '../../../Redux/cartActions';
 import Images from '../../../Assets/Images';
 
- export const categories = [
-  { label: 'Milks & Dairies', img: Images.BlogHead, count: 2 },
-  { label: 'Clothing', img: Images.Blog_Clothing, count: 2 },
+export const categories = [
+  { label: 'All', img: Images.BlogHead, count: 20 },
+  { label: 'Milks & Dairies', img: Images.BlogHead, count: 3 },
+  { label: 'Clothing', img: Images.Blog_Clothing, count: 4 },
   { label: 'Pet Foods', img: Images.Blog_Pet, count: 3 },
-  { label: 'Baking material', img: Images.Blog_Baking, count: 5 },
-  { label: 'Fresh Fruit', img: Images.Blog_Fruit, count: 6 },
-  { label: 'Milks & Dairies', img: Images.BlogHead, count: 2 },
-  { label: 'Clothing', img: Images.Blog_Clothing, count: 2 },
-  { label: 'Pet Foods', img: Images.Blog_Pet, count: 3 },
-  { label: 'Baking material', img: Images.Blog_Baking, count: 5 },
-  // { label: 'Fresh Fruit', img: Images.Blog_Fruit, count: 6 },
+  { label: 'Baking material', img: Images.Blog_Baking, count: 3 },
+  { label: 'Fresh Fruit', img: Images.Blog_Fruit, count: 2 },
 ];
 
 const Catergory = () => {
+  const dispatch = useDispatch();
+  const selectedCategory = useSelector((state) => state.selectedCategory);
+
+  const handleCategoryClick = (category) => {
+    dispatch(setCategoryFilter(category));
+  };
+
   return (
     <Box
       sx={{
@@ -24,16 +29,15 @@ const Catergory = () => {
         backgroundColor: '#fff',
         boxShadow: '0 0 10px rgba(0,0,0,0.1)',
         p: 3,
-        marginBottom:'20px'
+        marginBottom: '20px',
       }}
     >
-     
       <Box sx={{ mb: 4 }}>
         <Typography
           variant="h5"
           fontWeight="bold"
           color="#253D4E"
-          sx={{ mb: 1 , textAlign:'left'}}
+          sx={{ mb: 1, textAlign: 'left' }}
         >
           Category
         </Typography>
@@ -61,29 +65,31 @@ const Catergory = () => {
         </Box>
       </Box>
 
-     
       <Stack spacing={2}>
-      {categories.slice(0, 5).map((item, idx) => (
+        {categories.map((item, idx) => (
           <Box
-          key={idx}
-          sx={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            border: '1px solid #ECECEC',
-            borderRadius: '12px',
-            px: 2,
-            py: 1.2,
-            transition: 'all 0.3s ease',
-            backgroundColor: '#fff',
-            "&:hover": {
-              backgroundColor: '#F9F9F9',
-              boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
-              transform: 'translateY(-2px)',
-              cursor: 'pointer',
-            },
-          }}
-        >
+            key={idx}
+            onClick={() => handleCategoryClick(item.label)}
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              border: '1px solid #ECECEC',
+              borderRadius: '12px',
+              px: 2,
+              py: 1.2,
+              transition: 'all 0.3s ease',
+              backgroundColor:
+                selectedCategory === item.label ? '#D2F4E3' : '#fff',
+              '&:hover': {
+                backgroundColor:
+                  selectedCategory === item.label ? '#C8EEDB' : '#F9F9F9',
+                boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
+                transform: 'translateY(-2px)',
+                cursor: 'pointer',
+              },
+            }}
+          >
             <Stack direction="row" spacing={2} alignItems="center">
               <Box
                 component="img"

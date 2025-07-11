@@ -3,6 +3,8 @@ export const REMOVE_FROM_CART = 'REMOVE_FROM_CART';
 export const UPDATE_QUANTITY = 'UPDATE_QUANTITY';
 export const CLEAR_CART = 'CLEAR_CART';
 
+export const SET_CATEGORY_FILTER="SET_CATEGORY_FILTER"
+
 export const addToCart = (product) => ({
   type: ADD_TO_CART,
   payload: product,
@@ -20,4 +22,10 @@ export const updateQuantity = (id, quantity) => ({
 
 export const clearCart = () => ({
   type: CLEAR_CART,
+});
+
+
+export const setCategoryFilter=(category)=>({
+  type:SET_CATEGORY_FILTER,
+  payload:category,
 });

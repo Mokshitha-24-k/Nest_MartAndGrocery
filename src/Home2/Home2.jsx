@@ -118,6 +118,7 @@ const Home2 = () => {
       brand={product.brand}
       price={product.price}
       oldPrice={product.oldPrice}
+      stockStatus={product.stockStatus}
       
     />
   ))}
