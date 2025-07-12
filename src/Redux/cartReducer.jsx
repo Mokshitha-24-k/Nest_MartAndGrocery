@@ -58,6 +58,12 @@ import {
         ...state,
         selectedCategory: action.payload,
       };
+
+      case "SET_SEARCH_QUERY":
+      return { ...state, query: action.payload };
+
+
+
   
       default:
         return state;

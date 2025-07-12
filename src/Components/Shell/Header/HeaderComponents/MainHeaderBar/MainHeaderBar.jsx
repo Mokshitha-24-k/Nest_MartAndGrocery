@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Images from "../../../../../Assets/Images";
-import { useSelector } from "react-redux";
 import { FaBars, FaSearch } from "react-icons/fa";
 import { CiLocationOn } from "react-icons/ci";
 import "./MainHeaderBar.css";
@@ -9,10 +8,17 @@ import { IoMdHeartEmpty } from "react-icons/io";
 import { BsCart3 } from "react-icons/bs";
 import { FaRegUser } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { setSearchQuery } from "../../../../../Redux/cartActions"
+
 
 const MainHeaderBar = () => {
   const [showIcons, setShowIcons] = useState(false);
   const LocationOptions = ["Hyderabad", "Vijayawada", "Vizag", "Kurnool"];
+
+  const dispatch = useDispatch();
+const searchQuery = useSelector((state) => state.query); // query is already in cartReducer
+
 
   const toggleMenu = () => {
     setShowIcons(!showIcons);
@@ -30,11 +36,13 @@ const MainHeaderBar = () => {
 
         <div className="navbar-center">
           <div className="search-wrapper">
-            <input
-              type="text"
-              className="search-bar"
-              placeholder="Search products..."
-            />
+          <input
+  type="text"
+  className="search-bar"
+  placeholder="Search products..."
+  value={searchQuery}
+  onChange={(e) => dispatch(setSearchQuery(e.target.value))}
+/>
             <FaSearch className="search-icon" />
           </div>
         </div>
