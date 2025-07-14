@@ -19,17 +19,20 @@ const About = () => {
       
 
       <Box sx={{ mt: 6 }}>
-        <h2 className="wave-heading">
-          What We Provide ?
-          <img
-            src={Images.Underline}
-            alt="underline"
-            className="wave-underline-img"
-          />
-        </h2>
-       
-        <Footer2 variant="about" />
-      </Box>
+  <div className="wave-heading-container">
+    <h2 className="wave-heading">
+      What We Provide ?
+      <img
+        src={Images.Underline}
+        alt="underline"
+        className="wave-underline-img"
+      />
+    </h2>
+  </div>
+
+  <Footer2 variant="about" />
+</Box>
+
       <Performance />
       <Info />
       <HorizontalStatsBanner />

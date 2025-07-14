@@ -56,7 +56,7 @@ const CartPage = () => {
                 position: "relative",
               }}
             >
-              {/* Notify Me Button - positioned properly */}
+              
               {(item.stockStatus?.toLowerCase().includes("out") ||
                 item.stockStatus?.toLowerCase().includes("limited")) && (
                 <Button
@@ -82,16 +82,30 @@ const CartPage = () => {
                 </Button>
               )}
 
-              <CardMedia
-                component="img"
-                image={item.image}
-                sx={{
-                  width: { xs: "100%", sm: 150 },
-                  height: { xs: 200, sm: 150 },
-                  objectFit: "cover",
-                  borderRadius: 1,
-                }}
-              />
+<Box
+  sx={{
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    width: { xs: "100%", sm: 150, md: 350 },
+    height: { xs: 200, sm: 150, md: 350 },
+    flexShrink: 0,
+    borderRadius: 1,
+    overflow: "hidden",
+  }}
+>
+  <CardMedia
+    component="img"
+    image={item.image}
+    sx={{
+      width: "100%",
+      height: "100%",
+      objectFit: "cover",
+    }}
+  />
+</Box>
+
+
 
               <CardContent sx={{ flex: 1, width: "100%" }}>
                 <Typography variant="h6">{item.title}</Typography>

@@ -18,17 +18,21 @@ import CategoryGrid from "./CategoryGrid/CategoryGrid";
 
 const Home1 = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
+  const [priceRange, setPriceRange] = useState([0, 2000]); 
 
   const handleCategoryClick = (category) => {
     setSelectedCategory(category);
   };
 
-  const filteredProducts =
-    selectedCategory === "All"
-      ? PopularProductData
-      : PopularProductData.filter(
-          (product) => product.category === selectedCategory
-        );
+  const handlePriceChange = (range) => {
+    setPriceRange(range);
+  };
+
+  const filteredProducts = PopularProductData.filter((product) => {
+    const inCategory = selectedCategory === "All" || product.category === selectedCategory;
+    const inPriceRange = product.price >= priceRange[0] && product.price <= priceRange[1];
+    return inCategory && inPriceRange;
+  });
 
   return (
     <Box sx={{ px: 3, py: 6, width: "100%", mx: "auto" }}>
@@ -39,6 +43,7 @@ const Home1 = () => {
           gap: 4,
         }}
       >
+        
         <Box
           sx={{
             flex: 1,
@@ -51,13 +56,15 @@ const Home1 = () => {
         >
           <Box sx={{ height: 48, mb: 2 }} />
           <Category />
-          <Filter />
+          <Filter onPriceChange={handlePriceChange} /> 
           <Trending />
         </Box>
 
+       
         <Box sx={{ flex: 3, width: "100%" }}>
           <ReusableCarousel slides={slidesData} />
 
+          
           <div className="Pop">
             <div>
               <span className="Heading">
@@ -93,6 +100,7 @@ const Home1 = () => {
             </div>
           </div>
 
+          
           <div
             className="product-list-container"
             style={{
@@ -120,6 +128,7 @@ const Home1 = () => {
           </div>
 
           <DealsOfDay />
+
           <div className="promo-card-container">
             {promoCards.map((card, index) => (
               <AddsCard
