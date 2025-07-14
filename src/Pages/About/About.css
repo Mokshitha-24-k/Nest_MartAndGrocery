@@ -1,8 +1,9 @@
-.wave-heading {
+/* .wave-heading {
     position: relative;
     display: inline-block;
     color: #222;
     margin-bottom: 32px;
+    
   }
   
   .wave-underline-img {
@@ -11,6 +12,29 @@
     left: 50%;
     transform: translateX(-50%);
     width: 120px; 
+    height: auto;
+    pointer-events: none;
+  } */
+  
+
+  .wave-heading-container {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+  
+  .wave-heading {
+    position: relative;
+    display: inline-block;
+    color: #222;
+    margin: 0;
+  }
+  
+  .wave-underline-img {
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
     height: auto;
     pointer-events: none;
   }
