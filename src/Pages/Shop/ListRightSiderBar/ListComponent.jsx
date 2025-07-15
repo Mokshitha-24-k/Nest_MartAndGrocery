@@ -12,11 +12,12 @@ const ListComponent = ({
   text,
   price,
   oldPrice,
+  onAddToCart, 
 }) => {
   return (
     <Box
       sx={{
-        position: 'relative', 
+        position: 'relative',
         display: 'flex',
         flexDirection: { xs: 'column', sm: 'row' },
         gap: 3,
@@ -29,7 +30,7 @@ const ListComponent = ({
         width: '100%',
       }}
     >
-
+      
       {discount && (
         <Box
           sx={{
@@ -43,14 +44,14 @@ const ListComponent = ({
             fontSize: 16,
             borderRadius: '14px 0 14px 0',
             zIndex: 2,
-            borderTopLeftRadius: '15px', 
+            borderTopLeftRadius: '15px',
           }}
         >
           {discount}
         </Box>
       )}
 
-      
+     
       <Box>
         <Box
           component="img"
@@ -65,7 +66,7 @@ const ListComponent = ({
         />
       </Box>
 
-    
+     
       <Box sx={{ flex: 1, width: '100%' }}>
         <Typography
           variant="caption"
@@ -136,6 +137,7 @@ const ListComponent = ({
           {text}
         </Typography>
 
+       
         <Stack
           direction="row"
           spacing={2}
@@ -168,6 +170,7 @@ const ListComponent = ({
         >
           <Button
             variant="contained"
+            onClick={onAddToCart} 
             sx={{
               backgroundColor: '#3BB77E',
               color: '#fff',
@@ -179,6 +182,7 @@ const ListComponent = ({
           >
             Add to Cart
           </Button>
+
           <Button
             variant="text"
             sx={{

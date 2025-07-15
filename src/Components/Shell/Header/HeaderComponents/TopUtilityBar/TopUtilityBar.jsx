@@ -13,7 +13,7 @@ const CurrencyOptions=["INR","USD","EUR"];
   return (
     <div className="top-utility-bar">
       <div className="links">
-        <a href="">About us</a>
+        <a href="/about">About us</a>
         <a href="">My Account</a>
         <a href="">Wishlist</a>
         <a href="">Order Tracking</a>

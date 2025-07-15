@@ -1,24 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import PopularProductData from '../../../Home2/PopularProductData';
 import PopularProductCard from '../../../Components/Common/PopularProductCard/PopularProductcard';
-import { Box, Pagination } from "@mui/material";
+import { Box, Pagination, Snackbar, Alert } from "@mui/material";
 import DealsOfDay from '../Shop-grid-right-siderber/Deals/Deals';
 import Footer1 from '../../../Components/Shell/Footer/Footer1/Footer1';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { addToCart } from '../../../Redux/cartActions';
 
 const ITEMS_PER_PAGE = 15;
 
 const ShopfullWide = () => {
   const [page, setPage] = useState(1);
+  const [snackbarOpen, setSnackbarOpen] = useState(false);
+  const [snackbarMsg, setSnackbarMsg] = useState('');
 
+  const dispatch = useDispatch();
   const query = useSelector((state) => state.query);
 
-  // Reset to page 1 when query changes
   useEffect(() => {
-    setPage(1);
+    setPage(1); 
   }, [query]);
 
-  // Filter products by search query
   const filteredProducts = PopularProductData.filter((product) =>
     product?.title?.toLowerCase().includes(query?.toLowerCase() || "")
   );
@@ -30,6 +32,12 @@ const ShopfullWide = () => {
     setPage(value);
   };
 
+  const handleAddToCart = (product) => {
+    dispatch(addToCart(product));
+    setSnackbarMsg(`${product.title} added to cart`);
+    setSnackbarOpen(true);
+  };
+
   return (
     <Box sx={{ pt: 4 }}>
       <div className="product-list-container">
@@ -37,16 +45,8 @@ const ShopfullWide = () => {
           currentProducts.map((product) => (
             <PopularProductCard
               key={product.id}
-              discount={product.discount}
-              discountBG={product.discountBG}
-              image={product.image}
-              category={product.category}
-              title={product.title}
-              rating={product.rating}
-              brand={product.brand}
-              price={product.price}
-              oldPrice={product.oldPrice}
-              onAddToCart={() => console.log(`Added ${product.title}`)}
+              {...product}
+              onAddToCart={() => handleAddToCart(product)}
             />
           ))
         ) : (
@@ -71,6 +71,18 @@ const ShopfullWide = () => {
       </Box>
 
       <Footer1 />
+
+    
+      <Snackbar
+        open={snackbarOpen}
+        autoHideDuration={3000}
+        onClose={() => setSnackbarOpen(false)}
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+      >
+        <Alert onClose={() => setSnackbarOpen(false)} severity="success" sx={{ width: '100%' }}>
+          {snackbarMsg}
+        </Alert>
+      </Snackbar>
     </Box>
   );
 };
