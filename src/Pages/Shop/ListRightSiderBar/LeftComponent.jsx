@@ -1,17 +1,33 @@
 import React, { useState } from 'react';
-import { Box, Stack, Pagination } from '@mui/material';
-import { useSelector } from 'react-redux';
+import { Box, Stack, Pagination, Snackbar, Alert } from '@mui/material'; 
+import { useSelector, useDispatch } from 'react-redux';
 import ListComponent from './ListComponent';
 import PopularProductData from '../../../Home2/PopularProductData';
 import DealsOfDay from '../Shop-grid-right-siderber/Deals/Deals';
+import { addToCart } from '../../../Redux/cartActions';
 
 const ITEMS_PER_PAGE = 4;
 
 const LeftComponent = () => {
   const [page, setPage] = useState(1);
-  const selectedCategory = useSelector(state => state.selectedCategory);
-  const searchQuery = useSelector(state => state.query); 
+  const dispatch = useDispatch();
 
+  const selectedCategory = useSelector(state => state.selectedCategory || 'All');
+  const searchQuery = useSelector(state => state.query || '');
+  const priceRange = useSelector(state => state.priceRange || [0, 2000]);
+
+  const [openSnackbar, setOpenSnackbar] = useState(false);
+  const [snackbarMsg, setSnackbarMsg] = useState('');
+
+  const handleAddToCart = (product) => {
+    dispatch(addToCart(product));
+    setSnackbarMsg(`${product.title} added to cart!`);
+    setOpenSnackbar(true);
+  };
+
+  const handleCloseSnackbar = () => {
+    setOpenSnackbar(false);
+  };
 
   const filteredProducts = PopularProductData.filter(product => {
     const matchesCategory =
@@ -24,7 +40,10 @@ const LeftComponent = () => {
       (product?.title &&
         product.title.toLowerCase().includes(searchQuery.toLowerCase()));
 
-    return matchesCategory && matchesSearch;
+    const productPrice = parseFloat(product?.price) || 0;
+    const matchesPrice = productPrice >= priceRange[0] && productPrice <= priceRange[1];
+
+    return matchesCategory && matchesSearch && matchesPrice;
   });
 
   const startIndex = (page - 1) * ITEMS_PER_PAGE;
@@ -52,6 +71,7 @@ const LeftComponent = () => {
                 price={product.price}
                 oldPrice={product.oldPrice}
                 text={product.text}
+                onAddToCart={() => handleAddToCart(product)} // ✅ Add handler
               />
             ))
           ) : (
@@ -75,6 +95,18 @@ const LeftComponent = () => {
       <Box>
         <DealsOfDay />
       </Box>
+
+      {/* ✅ Snackbar */}
+      <Snackbar
+        open={openSnackbar}
+        autoHideDuration={2000}
+        onClose={handleCloseSnackbar}
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+      >
+        <Alert onClose={handleCloseSnackbar} severity="success" sx={{ width: '100%' }}>
+          {snackbarMsg}
+        </Alert>
+      </Snackbar>
     </Box>
   );
 };

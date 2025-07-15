@@ -20,9 +20,9 @@ const DropdownMenus = [
   {
     label: "Home",
     options: [
-      { label: "Home1", path: "/home1" },
-      { label: "Home2", path: "/home2" },
-      { label: "Home3", path: "/home3" },
+      { label: "Home with SideBar", path: "/home1" },
+      { label: "Home", path: "/home2" },
+      // { label: "Home3", path: "/home3" },
     ],
   },
   {
@@ -33,15 +33,15 @@ const DropdownMenus = [
     label: "Shop",
     options: [
       {
-        label: "Shop-grid-right-siderbar",
+        label: "Shop with right bar",
         path: "shop/ShopGridRightSidebar",
       },
       {
-        label: "Shop-grid-left-siderbar",
+        label: "Shop with left bar",
         path: "shop/ShhpGridLeftSidebar",
       },
-      { label: "List-right-siderbar", path: "/shop/ListRightSiderber" },
-      { label: "List-left-siderbar", path: "/shop/ListLeftSiderber" },
+      { label: "List with right bar", path: "/shop/ListRightSiderber" },
+      { label: "List with left bar", path: "/shop/ListLeftSiderber" },
       { label: "Shop-fullwide", path: "/shop/ShopFullwide" },
     ],
   },
@@ -70,9 +70,8 @@ const DropdownMenus = [
   {
     label: "Pages",
     options: [
-      { label: "FAQ", path: "/faq" },
-      { label: "Terms", path: "/terms" },
-      { label: "Privacy", path: "/privacy" },
+      { label: "About us", path: "/about" },
+      { label: "Contact us", path: "/contact" },
     ],
   },
   {

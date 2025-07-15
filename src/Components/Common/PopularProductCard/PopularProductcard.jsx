@@ -1,8 +1,6 @@
 import React from "react";
 import "./PopularProductCard.css";
 import { FaShoppingCart } from "react-icons/fa";
-import { addToCart } from "../../../Redux/cartActions";
-import { useDispatch } from "react-redux";
 
 const PopularProductCard = ({
   id,
@@ -15,10 +13,9 @@ const PopularProductCard = ({
   brand,
   price,
   oldPrice,
-  stockStatus  
+  stockStatus,
+  onAddToCart,
 }) => {
-  const dispatch = useDispatch();
-
   const handleAddToCart = () => {
     const product = {
       id,
@@ -34,15 +31,14 @@ const PopularProductCard = ({
       stockStatus,
     };
 
-    dispatch(addToCart(product));
+    if (onAddToCart) {
+      onAddToCart(product);
+    }
   };
 
   return (
     <div className="product-card">
-      <div
-        className="discount-badge"
-        style={{ backgroundColor: discountBG || "white" }}
-      >
+      <div className="discount-badge" style={{ backgroundColor: discountBG || "white" }}>
         {discount}
       </div>
 
@@ -55,8 +51,7 @@ const PopularProductCard = ({
         <h3 className="title">{title}</h3>
 
         <div className="rating">
-          {"★".repeat(rating)}
-          {"☆".repeat(5 - rating)}
+          {"★".repeat(rating)}{"☆".repeat(5 - rating)}
           <span className="rating-count">({rating})</span>
         </div>
 
@@ -70,17 +65,8 @@ const PopularProductCard = ({
             <span className="old-price">${oldPrice}</span>
           </div>
 
-          <button
-            className="add-btn"
-            // onClick={handleAddToCart}
-            onClick={() => {
-              handleAddToCart();
-              alert("Item added to cart!");
-            }}
-            
-           
-          >
-            <FaShoppingCart />  "Add"
+          <button className="add-btn" onClick={handleAddToCart}>
+            <FaShoppingCart /> Add
           </button>
         </div>
       </div>

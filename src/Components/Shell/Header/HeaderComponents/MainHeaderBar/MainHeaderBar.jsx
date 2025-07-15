@@ -17,7 +17,7 @@ const MainHeaderBar = () => {
   const LocationOptions = ["Hyderabad", "Vijayawada", "Vizag", "Kurnool"];
 
   const dispatch = useDispatch();
-const searchQuery = useSelector((state) => state.query); // query is already in cartReducer
+const searchQuery = useSelector((state) => state.query); 
 
 
   const toggleMenu = () => {
