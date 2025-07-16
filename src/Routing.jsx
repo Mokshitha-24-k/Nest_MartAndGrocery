@@ -12,6 +12,7 @@ import ListRightSideBar from "./Pages/Shop/ListRightSiderBar/ListRightSideBar";
 import ListLeftSideBar from "./Pages/Shop/ListLeftSiderBar/ListLeftSiderBar";
 import ShopfullWide from './Pages/Shop/ShopFullWide/ShopfullWide';
 import CartPage from './Pages/AddToCart/CartPage';
+import Login from './Pages/Login/Login';
 // import SingleProduct from "./Pages/SingleProduct/SingleProduct"
 const router = createBrowserRouter([
   {
@@ -33,6 +34,8 @@ const router = createBrowserRouter([
       { path: '/shop/ListLeftSiderber', element: <ListLeftSideBar /> },
       { path: '/shop/ShopFullwide', element: <ShopfullWide /> },
       { path: 'cart', element: <CartPage /> },
+      { path: 'login', element: <Login /> },
+      // { path: 'signup', element: <SignUp /> },
       
       // { path: 'product/:id', element: <SingleProduct /> },
 

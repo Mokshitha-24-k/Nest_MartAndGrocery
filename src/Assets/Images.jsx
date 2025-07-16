@@ -87,7 +87,11 @@ const Images =  {
   Comments1:require("./Comments1.png"),
   Comments2:require("./Comments2.png"),
   Comments3:require("./Comments3.png"),
-  FilterImg:require("./FilterImg.png")
+  FilterImg:require("./FilterImg.png"),
+  HalfLogo:require("./HalfLogo.png"),
+  Grocery:require("./Grocery.avif"),
+  Grocery1:require("./Grocery1.jpg"),
+  Grocery2:require("./Grocery2.jpg"),
 
 
 

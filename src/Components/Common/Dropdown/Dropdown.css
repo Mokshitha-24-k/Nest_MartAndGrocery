@@ -55,8 +55,10 @@
   transition: color 0.2s ease;
 }
 
-/* ✅ Active state (green color) */
+
 .dropdown-link.active-link {
   color: #3BB77E;
   font-weight: 600;
 }
+
+
