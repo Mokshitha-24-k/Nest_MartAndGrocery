@@ -15,6 +15,10 @@ import { setSearchQuery } from "../../../../../Redux/cartActions"
 const MainHeaderBar = () => {
   const [showIcons, setShowIcons] = useState(false);
   const LocationOptions = ["Hyderabad", "Vijayawada", "Vizag", "Kurnool"];
+  const accountOptions = [
+    { label: "Login", path: "/login" },
+    { label: "Sign Up", path: "/signup" }
+  ];
 
   const dispatch = useDispatch();
 const searchQuery = useSelector((state) => state.query); 
@@ -73,10 +77,15 @@ const searchQuery = useSelector((state) => state.query);
             
           </div>
 
-          <div className="nav-icon">
-            <FaRegUser />
-            <span className="nav-label">Account</span>
-          </div>
+          <div className="account-nav-wrapper">
+      <div className="account-icon">
+        <FaRegUser style={{ fontSize: "14px",  color: "#6B6A69"  }}/>
+      </div>
+      <Dropdown
+        label={<span className="account-label">Account</span>}
+        options={accountOptions}
+      />
+    </div>
         </div>
       </div>
 

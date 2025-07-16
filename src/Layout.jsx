@@ -1,32 +1,29 @@
-import React from 'react'
-import Home2 from '../src/Home2/Home2'
-import MainHeaderBar from './Components/Shell/Header/HeaderComponents/MainHeaderBar/MainHeaderBar'
-import NavMenuBar from './Components/Shell/Header/HeaderComponents/NavMenuBar/NavMenuBar'
-import Footer from './Components/Shell/Footer/Footer'
-import { Outlet } from 'react-router-dom'
-import TopUtilityBar from './Components/Shell/Header/HeaderComponents/TopUtilityBar/TopUtilityBar'
-import About from "./Pages/About/About"
-import Contact from "./Pages/Contact/Contact"
-import Blog from "./Pages/Blog/Blog"
-import BlogDetails from "./Pages/BlogDetails/BlogDetails"
+import React from "react";
+import { Outlet, useLocation } from "react-router-dom";
+import MainHeaderBar from "./Components/Shell/Header/HeaderComponents/MainHeaderBar/MainHeaderBar";
+import NavMenuBar from "./Components/Shell/Header/HeaderComponents/NavMenuBar/NavMenuBar";
+import Footer from "./Components/Shell/Footer/Footer";
+import TopUtilityBar from "./Components/Shell/Header/HeaderComponents/TopUtilityBar/TopUtilityBar";
+
 const Layout = () => {
+  const location = useLocation();
+
+  // Hide these components on login or signup paths
+  const hideComponentsOnPaths = ["/login", "/signup"];
+
+  const shouldHide = hideComponentsOnPaths.includes(location.pathname);
+
   return (
     <div>
-      <TopUtilityBar />
-  <MainHeaderBar />
-  
-  <NavMenuBar />
- 
-      {/* <Home2 /> */}
-      <Outlet />
-      {/* <About /> */}
-      {/* <Contact /> */}
-      {/* <Blog /> */}
-      {/* <BlogDetails /> */}
-      
-      <Footer />
-    </div>
-  )
-}
+      {!shouldHide && <TopUtilityBar />}
+      <MainHeaderBar />
+      {!shouldHide && <NavMenuBar />}
 
-export default Layout
+      <Outlet />
+
+      {!shouldHide && <Footer />}
+    </div>
+  );
+};
+
+export default Layout;
