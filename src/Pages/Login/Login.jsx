@@ -172,7 +172,7 @@ const Login = () => {
           </Button>
 
           <Typography textAlign="center" mt={2}>
-            <Link to="/Signup" style={{ textDecoration: "none", color: "#2e7d32" }}>
+            <Link to="/signup" style={{ textDecoration: "none", color: "#2e7d32" }}>
               New here? Create an account
             </Link>
           </Typography>

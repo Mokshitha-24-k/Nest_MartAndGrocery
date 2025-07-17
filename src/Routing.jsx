@@ -34,7 +34,7 @@ const ShopfullWide = lazy(() =>
 const CartPage = lazy(() => import("./Pages/AddToCart/CartPage"));
 const Login = lazy(() => import("./Pages/Login/Login"));
 const SignUp = lazy(() => import("./Pages/SignUp/SignUp"));
-// const SingleProduct = lazy(() => import('./Pages/SingleProduct/SingleProduct'));
+
 
 const router = createBrowserRouter([
   {
