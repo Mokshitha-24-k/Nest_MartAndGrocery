@@ -1,46 +1,74 @@
-import { createBrowserRouter } from 'react-router-dom';
-import Layout from './Layout';
-import Home2 from './Home2/Home2';
-import Home1 from "./Pages/Home1/Home1";
-import About from './Pages/About/About';
-import Contact from './Pages/Contact/Contact';
-import Blog from './Pages/Blog/Blog';
-import BlogDetails from './Pages/BlogDetails/BlogDetails'; 
-import ShopGridRightBar from "./Pages/Shop/Shop-grid-right-siderber/ShopGridRightBar";
-import ShopGridLeftBar from "./Pages/Shop/Shop-grid-left-siderber/ShopGridLefBar";
-import ListRightSideBar from "./Pages/Shop/ListRightSiderBar/ListRightSideBar";
-import ListLeftSideBar from "./Pages/Shop/ListLeftSiderBar/ListLeftSiderBar";
-import ShopfullWide from './Pages/Shop/ShopFullWide/ShopfullWide';
-import CartPage from './Pages/AddToCart/CartPage';
-import Login from './Pages/Login/Login';
-// import SingleProduct from "./Pages/SingleProduct/SingleProduct"
+// router.jsx
+import { createBrowserRouter } from "react-router-dom";
+import React, { lazy, Suspense } from "react";
+import Loader from "./Components/Common/Loader/Loader"; // fallback loader
+
+const withSuspense = (Component) => (
+  <Suspense fallback={<Loader />}>
+    <Component />
+  </Suspense>
+);
+
+const Layout = lazy(() => import("./Layout"));
+const Home2 = lazy(() => import("./Home2/Home2"));
+const Home1 = lazy(() => import("./Pages/Home1/Home1"));
+const About = lazy(() => import("./Pages/About/About"));
+const Contact = lazy(() => import("./Pages/Contact/Contact"));
+const Blog = lazy(() => import("./Pages/Blog/Blog"));
+const BlogDetails = lazy(() => import("./Pages/BlogDetails/BlogDetails"));
+const ShopGridRightBar = lazy(() =>
+  import("./Pages/Shop/Shop-grid-right-siderber/ShopGridRightBar")
+);
+const ShopGridLeftBar = lazy(() =>
+  import("./Pages/Shop/Shop-grid-left-siderber/ShopGridLefBar")
+);
+const ListRightSideBar = lazy(() =>
+  import("./Pages/Shop/ListRightSiderBar/ListRightSideBar")
+);
+const ListLeftSideBar = lazy(() =>
+  import("./Pages/Shop/ListLeftSiderBar/ListLeftSiderBar")
+);
+const ShopfullWide = lazy(() =>
+  import("./Pages/Shop/ShopFullWide/ShopfullWide")
+);
+const CartPage = lazy(() => import("./Pages/AddToCart/CartPage"));
+const Login = lazy(() => import("./Pages/Login/Login"));
+const SignUp = lazy(() => import("./Pages/SignUp/SignUp"));
+// const SingleProduct = lazy(() => import('./Pages/SingleProduct/SingleProduct'));
+
 const router = createBrowserRouter([
   {
-
-    
-    path: '/',
-    element: <Layout />,
+    path: "/",
+    element: withSuspense(Layout),
     children: [
-      { index: true, element: <Home2 /> },
-      { path: 'home2', element: <Home2 /> },
-      { path: 'home1', element: <Home1 /> },
-      { path: 'about', element: <About /> },
-      { path: 'contact', element: <Contact /> },
-      { path: 'blog/blog', element: <Blog /> },
-      { path: 'blog/blogDetails', element: <BlogDetails /> },
-      { path: 'shop/ShopGridRightSidebar', element: <ShopGridRightBar /> },
-      { path: 'shop/ShhpGridLeftSidebar', element: <ShopGridLeftBar /> },
-      { path: '/shop/ListRightSiderber', element: <ListRightSideBar /> },
-      { path: '/shop/ListLeftSiderber', element: <ListLeftSideBar /> },
-      { path: '/shop/ShopFullwide', element: <ShopfullWide /> },
-      { path: 'cart', element: <CartPage /> },
-      { path: 'login', element: <Login /> },
-      // { path: 'signup', element: <SignUp /> },
-      
-      // { path: 'product/:id', element: <SingleProduct /> },
-
-
-   
+      { index: true, element: withSuspense(Home2) },
+      { path: "home2", element: withSuspense(Home2) },
+      { path: "home1", element: withSuspense(Home1) },
+      { path: "about", element: withSuspense(About) },
+      { path: "contact", element: withSuspense(Contact) },
+      { path: "blog/blog", element: withSuspense(Blog) },
+      { path: "blog/blogDetails", element: withSuspense(BlogDetails) },
+      {
+        path: "shop/ShopGridRightSidebar",
+        element: withSuspense(ShopGridRightBar),
+      },
+      {
+        path: "shop/ShhpGridLeftSidebar",
+        element: withSuspense(ShopGridLeftBar),
+      },
+      {
+        path: "/shop/ListRightSiderber",
+        element: withSuspense(ListRightSideBar),
+      },
+      {
+        path: "/shop/ListLeftSiderber",
+        element: withSuspense(ListLeftSideBar),
+      },
+      { path: "/shop/ShopFullwide", element: withSuspense(ShopfullWide) },
+      { path: "cart", element: withSuspense(CartPage) },
+      { path: "login", element: withSuspense(Login) },
+      { path: "signup", element: withSuspense(SignUp) },
+      // { path: 'product/:id', element: withSuspense(SingleProduct) },
     ],
   },
 ]);

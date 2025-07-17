@@ -7,8 +7,17 @@ import Dropdown from '../../../../Common/Dropdown/Dropdown'
 
 const TopUtilityBar = () => {
   
-const LanguageOptions=["Eng", "Hin", "Tel"];
-const CurrencyOptions=["INR","USD","EUR"];
+  const LanguageOptions = [
+    { label: "Eng" },
+    { label: "Hin" },
+    { label: "Tel" },
+  ];
+  
+  const CurrencyOptions = [
+    { label: "INR" },
+    { label: "USD" },
+    { label: "EUR" },
+  ];
 
   return (
     <div className="top-utility-bar">

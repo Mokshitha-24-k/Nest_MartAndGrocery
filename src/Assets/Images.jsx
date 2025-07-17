@@ -92,6 +92,7 @@ const Images =  {
   Grocery:require("./Grocery.avif"),
   Grocery1:require("./Grocery1.jpg"),
   Grocery2:require("./Grocery2.jpg"),
+  Grocery3:require("./Grocery3.png"),
 
 
 

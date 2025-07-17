@@ -13,7 +13,7 @@ const DropdownMenus = [
     options: [
       { label: "Electronics", path: "/browse/electronics" },
       { label: "Fashion", path: "/browse/fashion" },
-      { label: "Home", path: "/browse/home" },
+      { label: "Home", path: "/home2" },
       { label: "Beauty", path: "/browse/beauty" },
     ],
   },

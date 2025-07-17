@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart } from "../Redux/cartActions";
 import Header from '../Components/Shell/Header/Header';
 import ReusableCarousel from '../Components/Common/Carousel/Carousel';
 import Images from '../Assets/Images';
@@ -7,14 +9,14 @@ import AddsCard from '../Components/Common/AddsCard/AddsCard';
 import './Home2.css';
 import PopularProductCard from '../Components/Common/PopularProductCard/PopularProductcard';
 import PopularProductData from "./PopularProductData";
-import Footer from '../Components/Shell/Footer/Footer';
 import DailyBestSells from '../Components/Common/DailyBestSellsCard/DailyBestSells';
 import DealsOfDay from '../Components/Common/DealsOfDay/DealsOfDay';
 import FourCardSection from "../Components/Common/TopSells/FourCardSection";
 import Footer1 from '../Components/Shell/Footer/Footer1/Footer1';
 import Footer2 from '../Components/Shell/Footer/Footer2/Footer2';
-import { useDispatch, useSelector } from "react-redux";
-import { addToCart } from "../Redux/cartActions";
+
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert from '@mui/material/Alert';
 
 export const slidesData = [
   {
@@ -63,6 +65,20 @@ const Home2 = () => {
   const dispatch = useDispatch();
   const searchQuery = useSelector((state) => state.query);
 
+  // Snackbar state
+  const [snackOpen, setSnackOpen] = useState(false);
+  const [snackMessage, setSnackMessage] = useState("");
+
+  const handleSnackClose = () => {
+    setSnackOpen(false);
+  };
+
+  const handleAddToCart = (product) => {
+    dispatch(addToCart(product));
+    setSnackMessage(`${product.title} added to cart`);
+    setSnackOpen(true);
+  };
+
   const filteredProducts = PopularProductData.filter(
     (product) =>
       product?.title &&
@@ -71,8 +87,7 @@ const Home2 = () => {
 
   return (
     <div>
-      
-      <div style={{ width: "90%", margin: ' 0 auto' }}>
+      <div style={{ width: "90%", margin: '0 auto' }}>
         <ReusableCarousel slides={slidesData} />
       </div>
 
@@ -97,13 +112,13 @@ const Home2 = () => {
             <span className="Heading"><h3>Popular Products</h3></span>
           </div>
           <div className='Pop-Links'>
-            <a href="">All</a>
-            <a href="">Milks & Dairies</a>
-            <a href="">Coffes & Teas</a>
-            <a href="">Pet Foods</a>
-            <a href="">Meats</a>
-            <a href="">Vegetables</a>
-            <a href="">Fruits</a>
+            <a href="#">All</a>
+            <a href="#">Milks & Dairies</a>
+            <a href="#">Coffees & Teas</a>
+            <a href="#">Pet Foods</a>
+            <a href="#">Meats</a>
+            <a href="#">Vegetables</a>
+            <a href="#">Fruits</a>
           </div>
         </div>
 
@@ -112,17 +127,8 @@ const Home2 = () => {
             filteredProducts.map((product) => (
               <PopularProductCard
                 key={product.id}
-                id={product.id}
-                discount={product.discount}
-                discountBG={product.discountBG}
-                image={product.image}
-                category={product.category}
-                title={product.title}
-                rating={product.rating}
-                brand={product.brand}
-                price={product.price}
-                oldPrice={product.oldPrice}
-                stockStatus={product.stockStatus}
+                {...product}
+                onAddToCart={() => handleAddToCart(product)}
               />
             ))
           ) : (
@@ -138,6 +144,18 @@ const Home2 = () => {
         <Footer1 />
         <Footer2 variant="home" />
       </div>
+
+      {/* Snackbar for cart confirmation */}
+      <Snackbar
+        open={snackOpen}
+        autoHideDuration={3000}
+        onClose={handleSnackClose}
+        anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+      >
+        <MuiAlert onClose={handleSnackClose} severity="success" sx={{ width: "100%" }}>
+          {snackMessage}
+        </MuiAlert>
+      </Snackbar>
     </div>
   );
 };

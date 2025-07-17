@@ -6,27 +6,27 @@ import {
   Button,
   IconButton,
   InputAdornment,
-  Checkbox,
-  FormControlLabel,
-  useMediaQuery,
-  Divider,
   Snackbar,
   Alert,
+  Divider,
+  useMediaQuery,
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebookF, FaPhone } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
-import { useNavigate, Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Images from "../../Assets/Images";
 
 import { auth } from "../../Firebase";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 
-const Login = () => {
-  const [email, setEmail] = useState(""); // renamed from username
+const SignUp = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [snack, setSnack] = useState({ open: false, message: "", severity: "info" });
 
@@ -34,25 +34,49 @@ const Login = () => {
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
   const navigate = useNavigate();
 
-  const handleLogin = async () => {
-    if (!email || !password) {
+  const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+
+  const handleSignup = async () => {
+    if (!name || !email || !password || !confirmPassword) {
       setSnack({ open: true, message: "Please fill in all fields", severity: "warning" });
       return;
     }
 
+    if (!passwordRegex.test(password)) {
+      setSnack({
+        open: true,
+        message:
+          "Password must have 1 uppercase, 1 lowercase, 1 number, 1 special character, and be 8+ characters.",
+        severity: "error",
+      });
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      setSnack({
+        open: true,
+        message: "Passwords do not match.",
+        severity: "error",
+      });
+      return;
+    }
+
     try {
-      await signInWithEmailAndPassword(auth, email, password);
-      setSnack({ open: true, message: "Login successful! Welcome to NestMart 🛒", severity: "success" });
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      await updateProfile(userCredential.user, { displayName: name });
+
+      setSnack({ open: true, message: "Signup successful! Welcome to NestMart 🛒", severity: "success" });
       setTimeout(() => navigate("/Home2"), 1500);
     } catch (error) {
-      let errorMsg = "Login failed. Please check your credentials.";
-      if (error.code === "auth/user-not-found") {
-        errorMsg = "User not found.";
-      } else if (error.code === "auth/wrong-password") {
-        errorMsg = "Incorrect password.";
+      let errorMsg = "Signup failed. Please try again.";
+      if (error.code === "auth/email-already-in-use") {
+        errorMsg = "Email already in use.";
       } else if (error.code === "auth/invalid-email") {
         errorMsg = "Invalid email format.";
+      } else if (error.code === "auth/weak-password") {
+        errorMsg = "Password is too weak.";
       }
+
       setSnack({ open: true, message: errorMsg, severity: "error" });
     }
   };
@@ -92,7 +116,7 @@ const Login = () => {
           >
             <Box
               component="img"
-              src={Images.Grocery2}
+              src={Images.Grocery3}
               alt="NestMart Grocery"
               sx={{
                 width: "100%",
@@ -129,8 +153,17 @@ const Login = () => {
           </Box>
 
           <Typography variant="subtitle2" textAlign="center" color="text.secondary" mb={3}>
-            Log in to continue shopping
+            Create a new account to start shopping
           </Typography>
+
+          <TextField
+            fullWidth
+            label="Name"
+            variant="outlined"
+            margin="normal"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
 
           <TextField
             fullWidth
@@ -160,20 +193,28 @@ const Login = () => {
             }}
           />
 
-          <FormControlLabel control={<Checkbox />} label="Remember me" sx={{ mt: 1 }} />
+          <TextField
+            fullWidth
+            label="Confirm Password"
+            variant="outlined"
+            margin="normal"
+            type={showPassword ? "text" : "password"}
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+          />
 
           <Button
             fullWidth
             variant="contained"
             sx={{ mt: 2, fontWeight: "bold", backgroundColor: "#3BB77E" }}
-            onClick={handleLogin}
+            onClick={handleSignup}
           >
-            LOG IN
+            SIGN UP
           </Button>
 
           <Typography textAlign="center" mt={2}>
-            <Link to="/Signup" style={{ textDecoration: "none", color: "#2e7d32" }}>
-              New here? Create an account
+            <Link to="/Login" style={{ textDecoration: "none", color: "#2e7d32" }}>
+              Already have an account? Log in
             </Link>
           </Typography>
 
@@ -212,4 +253,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignUp;

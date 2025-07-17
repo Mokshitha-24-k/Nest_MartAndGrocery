@@ -8,7 +8,7 @@ import TopUtilityBar from "./Components/Shell/Header/HeaderComponents/TopUtility
 const Layout = () => {
   const location = useLocation();
 
-  // Hide these components on login or signup paths
+  
   const hideComponentsOnPaths = ["/login", "/signup"];
 
   const shouldHide = hideComponentsOnPaths.includes(location.pathname);
@@ -16,7 +16,7 @@ const Layout = () => {
   return (
     <div>
       {!shouldHide && <TopUtilityBar />}
-      <MainHeaderBar />
+      {!shouldHide && <MainHeaderBar /> }
       {!shouldHide && <NavMenuBar />}
 
       <Outlet />
