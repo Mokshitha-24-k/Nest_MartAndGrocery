@@ -1,9 +1,11 @@
 import React from "react";
 import "./Dropdown.css";
 import { RiArrowDropDownLine } from "react-icons/ri";
-import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Dropdown = ({ label, options }) => {
+  const navigate = useNavigate();
+
   return (
     <div className="hover-dropdown">
       <span className="hover-label">
@@ -13,15 +15,18 @@ const Dropdown = ({ label, options }) => {
       {options.length > 0 && (
         <div className="hover-menu">
           {options.map((opt, i) => (
-            <div className="hover-item" key={i}>
-              <NavLink
-                to={opt.path}
-                className={({ isActive }) =>
-                  isActive ? "dropdown-link active-link" : "dropdown-link"
+            <div
+              className="hover-item"
+              key={i}
+              onClick={() => {
+                if (opt.action) {
+                  opt.action(); 
+                } else if (opt.path) {
+                  navigate(opt.path); 
                 }
-              >
-                {opt.label}
-              </NavLink>
+              }}
+            >
+              <span className="dropdown-link">{opt.label}</span>
             </div>
           ))}
         </div>

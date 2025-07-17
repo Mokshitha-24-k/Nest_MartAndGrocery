@@ -1,6 +1,8 @@
 import React from "react";
 import "./PopularProductCard.css";
 import { FaShoppingCart } from "react-icons/fa";
+import { getAuth } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
 const PopularProductCard = ({
   id,
@@ -16,7 +18,17 @@ const PopularProductCard = ({
   stockStatus,
   onAddToCart,
 }) => {
+  const auth = getAuth();
+  const user = auth.currentUser;
+  const navigate = useNavigate();
+
   const handleAddToCart = () => {
+    if (!user) {
+      alert("Please log in to add items to your cart.");
+      navigate("/login");
+      return;
+    }
+
     const product = {
       id,
       discount,
