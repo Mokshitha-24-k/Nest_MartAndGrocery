@@ -8,15 +8,7 @@ import { Link } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 
 const DropdownMenus = [
-  {
-    label: "Browse All Categories",
-    options: [
-      { label: "Electronics", path: "/browse/electronics" },
-      { label: "Fashion", path: "/browse/fashion" },
-      { label: "Home", path: "/home2" },
-      { label: "Beauty", path: "/browse/beauty" },
-    ],
-  },
+ 
   {
     label: "Home",
     options: [
@@ -101,17 +93,15 @@ const NavMenuBar = () => {
     <div className="secondary-navbar">
       <div className="nav-row">
         <div className="Left">
-          <div className="Browse-Dropdown">
-            <CiGrid41 style={{ color: "white" }} />
-            <Dropdown
-              label="Browse All Categories"
-              options={DropdownMenus[0].options}
-            />
-          </div>
+          
+          <Link to="/shop/ShopFullwide" className="Browse-Dropdown">
+  <CiGrid41 style={{ color: "white" }} />
+  <span>Browse All Items</span>
+</Link>
 
-          <span className="plain-link">
-            <HiFire style={{ color: "#3cb371" }} /> Hot Deals
-          </span>
+<a href="#dealsofday" className="plain-link">
+  <HiFire style={{ color: "#3cb371" }} /> Hot Deals
+</a>
         </div>
         <div className="Right large-screen-only">
           {DropdownMenus.slice(1).map((menu) => renderMenuItem(menu))}

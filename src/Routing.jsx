@@ -1,7 +1,7 @@
 // router.jsx
 import { createBrowserRouter } from "react-router-dom";
 import React, { lazy, Suspense } from "react";
-import Loader from "./Components/Common/Loader/Loader"; // fallback loader
+import Loader from "./Components/Common/Loader/Loader"; 
 
 const withSuspense = (Component) => (
   <Suspense fallback={<Loader />}>

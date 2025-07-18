@@ -8,6 +8,7 @@ import {
   SET_CATEGORY_FILTER,
   SET_SEARCH_QUERY,
   SET_PRICE_FILTER,
+  SET_CART,
 } from './cartActions';
 
 const initialState = {
@@ -79,6 +80,11 @@ const cartReducer = (state = initialState, action) => {
         ...state,
         priceRange: action.payload,
       };
+      case SET_CART:
+  return {
+    ...state,
+    cartItems: action.payload,
+  };
 
     default:
       return state;

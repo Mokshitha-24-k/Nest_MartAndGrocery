@@ -8,6 +8,7 @@ export const SET_CATEGORY_FILTER = 'SET_CATEGORY_FILTER';
 export const SET_SEARCH_QUERY = 'SET_SEARCH_QUERY';
 export const SET_PRICE_FILTER = 'SET_PRICE_FILTER';  
 
+export const SET_CART = 'SET_CART';
 
 export const addToCart = (product) => ({
   type: ADD_TO_CART,
@@ -42,4 +43,9 @@ export const setSearchQuery = (query) => ({
 export const setPriceFilter = (priceRange) => ({
   type: SET_PRICE_FILTER,
   payload: priceRange,
+});
+
+export const setCart = (cartItems) => ({
+  type: SET_CART,
+  payload: cartItems,
 });

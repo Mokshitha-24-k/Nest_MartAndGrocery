@@ -1,8 +1,8 @@
 import React from "react";
 import "./PopularProductCard.css";
 import { FaShoppingCart } from "react-icons/fa";
-import { getAuth } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../../AuthContext"; // use our context
 
 const PopularProductCard = ({
   id,
@@ -18,11 +18,15 @@ const PopularProductCard = ({
   stockStatus,
   onAddToCart,
 }) => {
-  const auth = getAuth();
-  const user = auth.currentUser;
+  const { user, loading } = useAuth();
   const navigate = useNavigate();
 
   const handleAddToCart = () => {
+    if (loading) {
+      alert("Checking login status, please wait...");
+      return;
+    }
+
     if (!user) {
       alert("Please log in to add items to your cart.");
       navigate("/login");
