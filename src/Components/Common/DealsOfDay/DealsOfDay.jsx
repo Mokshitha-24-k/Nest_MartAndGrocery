@@ -7,7 +7,7 @@ import DealsData from "./DealsData"
 
 const DealsOfDay = () => {
   return (
-    <div className="deals-of-day-section">
+    <div className="deals-of-day-section" id="dealsofday">
       <h2 className="deals-of-day-heading">Deals of the Day</h2>
 
       <div className="deals-of-day-grid">

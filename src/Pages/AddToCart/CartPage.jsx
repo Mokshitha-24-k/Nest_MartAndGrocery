@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   removeFromCart,
   updateQuantity,
   clearCart,
+  setCart,
 } from "../../Redux/cartActions";
+import {
+  saveCartToFirestore,
+  getCartFromFirestore,
+} from "./cartFirestore";
+import { useAuth } from "../../AuthContext"; 
+
 import {
   Box,
   Typography,
@@ -21,6 +28,29 @@ import DeleteIcon from "@mui/icons-material/Delete";
 const CartPage = () => {
   const cartItems = useSelector((state) => state.cartItems);
   const dispatch = useDispatch();
+  const { user, loading } = useAuth(); 
+
+  
+  useEffect(() => {
+    const fetchCart = async () => {
+      if (user) {
+        const savedCart = await getCartFromFirestore(user.uid);
+        dispatch(setCart(savedCart));
+      } else {
+        dispatch(setCart([]));
+      }
+    };
+    if (!loading) {
+      fetchCart();
+    }
+  }, [user, loading, dispatch]);
+
+  
+  useEffect(() => {
+    if (user && cartItems) {
+      saveCartToFirestore(user.uid, cartItems);
+    }
+  }, [cartItems, user]);
 
   const handleQuantityChange = (id, quantity) => {
     if (quantity >= 1) {
@@ -32,6 +62,14 @@ const CartPage = () => {
     (acc, item) => acc + parseFloat(item.price) * item.quantity,
     0
   );
+
+  if (loading) {
+    return <Typography>Loading your cart...</Typography>;
+  }
+
+  if (!user) {
+    return <Typography>Please log in to view your cart.</Typography>;
+  }
 
   return (
     <Box sx={{ p: { xs: 2, md: 4 } }}>
@@ -56,56 +94,28 @@ const CartPage = () => {
                 position: "relative",
               }}
             >
-              
-              {(item.stockStatus?.toLowerCase().includes("out") ||
-                item.stockStatus?.toLowerCase().includes("limited")) && (
-                <Button
-                  variant="outlined"
-                  color="primary"
-                  size="small"
+              <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  width: { xs: "100%", sm: 150, md: 350 },
+                  height: { xs: 200, sm: 150, md: 350 },
+                  flexShrink: 0,
+                  borderRadius: 1,
+                  overflow: "hidden",
+                }}
+              >
+                <CardMedia
+                  component="img"
+                  image={item.image}
                   sx={{
-                    position: {
-                      xs: "relative",
-                      sm: "absolute",
-                    },
-                    top: { sm: 8 },
-                    right: { sm: 8 },
-                    alignSelf: { xs: "flex-end", sm: "auto" },
-                    mb: { xs: 1, sm: 0 },
-                    zIndex: 1,
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
                   }}
-                  onClick={() =>
-                    alert(`You'll be notified when "${item.title}" is restocked.`)
-                  }
-                >
-                  Notify Me
-                </Button>
-              )}
-
-<Box
-  sx={{
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    width: { xs: "100%", sm: 150, md: 350 },
-    height: { xs: 200, sm: 150, md: 350 },
-    flexShrink: 0,
-    borderRadius: 1,
-    overflow: "hidden",
-  }}
->
-  <CardMedia
-    component="img"
-    image={item.image}
-    sx={{
-      width: "100%",
-      height: "100%",
-      objectFit: "cover",
-    }}
-  />
-</Box>
-
-
+                />
+              </Box>
 
               <CardContent sx={{ flex: 1, width: "100%" }}>
                 <Typography variant="h6">{item.title}</Typography>
