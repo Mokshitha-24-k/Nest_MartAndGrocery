@@ -104,7 +104,7 @@ const NavMenuBar = () => {
 </a>
         </div>
         <div className="Right large-screen-only">
-          {DropdownMenus.slice(1).map((menu) => renderMenuItem(menu))}
+          {DropdownMenus.map((menu) => renderMenuItem(menu))}
         </div>
         <div
           className="hamburger-menu-icon"
@@ -114,7 +114,7 @@ const NavMenuBar = () => {
         </div>
       </div>
       <div className={`Right mobile-dropdown ${showMenu ? "show" : ""}`}>
-        {DropdownMenus.slice(1).map((menu) => renderMenuItem(menu))}
+        {DropdownMenus.map((menu) => renderMenuItem(menu))}
       </div>
     </div>
   );

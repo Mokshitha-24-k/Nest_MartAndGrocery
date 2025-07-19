@@ -57,7 +57,9 @@ const MainHeaderBar = () => {
 
   
   const accountOptions = user
-    ? [{ label: "Logout", action: handleLogout }]
+    ? [{ label: "Logout", action: handleLogout },
+      { label: "Profile", path:"/profile"}
+    ]
     : [
         { label: "Login", path: "/login" },
         { label: "Sign Up", path: "/signup" },
@@ -67,7 +69,9 @@ const MainHeaderBar = () => {
     <nav className="navbar">
       <div className="navbar-top-row">
         <div className="navbar-left">
-          <img src={Images.Logo} alt="Logo" className="logo" />
+         <Link to="/home2">
+  <img src={Images.Logo} alt="Logo" className="logo" />
+</Link>
         </div>
 
         <div className="navbar-center">
