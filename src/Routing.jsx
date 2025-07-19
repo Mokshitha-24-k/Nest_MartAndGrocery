@@ -1,7 +1,6 @@
-// router.jsx
 import { createBrowserRouter } from "react-router-dom";
 import React, { lazy, Suspense } from "react";
-import Loader from "./Components/Common/Loader/Loader"; 
+import Loader from "./Components/Common/Loader/Loader";
 
 const withSuspense = (Component) => (
   <Suspense fallback={<Loader />}>
@@ -34,7 +33,7 @@ const ShopfullWide = lazy(() =>
 const CartPage = lazy(() => import("./Pages/AddToCart/CartPage"));
 const Login = lazy(() => import("./Pages/Login/Login"));
 const SignUp = lazy(() => import("./Pages/SignUp/SignUp"));
-
+const Profile = lazy(() => import("./Pages/Profile/Profile")); // added Profile page
 
 const router = createBrowserRouter([
   {
@@ -68,6 +67,7 @@ const router = createBrowserRouter([
       { path: "cart", element: withSuspense(CartPage) },
       { path: "login", element: withSuspense(Login) },
       { path: "signup", element: withSuspense(SignUp) },
+      { path: "profile", element: withSuspense(Profile) }, // new profile route
       // { path: 'product/:id', element: withSuspense(SingleProduct) },
     ],
   },

@@ -4,12 +4,13 @@ import MainHeaderBar from "./Components/Shell/Header/HeaderComponents/MainHeader
 import NavMenuBar from "./Components/Shell/Header/HeaderComponents/NavMenuBar/NavMenuBar";
 import Footer from "./Components/Shell/Footer/Footer";
 import TopUtilityBar from "./Components/Shell/Header/HeaderComponents/TopUtilityBar/TopUtilityBar";
+import Profile from "./Pages/Profile/Profile";
 
 const Layout = () => {
   const location = useLocation();
 
   
-  const hideComponentsOnPaths = ["/login", "/signup"];
+  const hideComponentsOnPaths = ["/login", "/signup", "/profile"];
 
   const shouldHide = hideComponentsOnPaths.includes(location.pathname);
 
