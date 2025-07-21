@@ -28,6 +28,7 @@
   z-index: 9999;
   overflow: visible; 
   max-height: none;
+  
 }
 
 .hover-dropdown:hover .hover-menu {
