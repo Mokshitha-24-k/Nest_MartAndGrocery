@@ -1,6 +1,7 @@
 .daily-best-sells-section {
     padding: 20px;
    
+   
   }
   
   .top-bar {
@@ -69,8 +70,10 @@
     flex: 3;
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 20px;
     justify-content: flex-start;
+    margin-left: 20px;
+    
   }
   
   
