@@ -57,8 +57,9 @@ const MainHeaderBar = () => {
 
   
   const accountOptions = user
-    ? [{ label: "Logout", action: handleLogout },
-      { label: "Profile", path:"/profile"}
+    ? [
+      { label: "Profile", path:"/profile"},
+      { label: "Logout", action: handleLogout }
     ]
     : [
         { label: "Login", path: "/login" },
